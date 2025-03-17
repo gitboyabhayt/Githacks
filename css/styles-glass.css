@@ -1,0 +1,22 @@
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.gradient-bg {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(45deg, #4f46e5, #06b6d4, #3b82f6);
+    z-index: -1;
+}
+
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    box-shadow: var(--glass-shadow);
+}
+
+/* More glass morphism styles... */ 

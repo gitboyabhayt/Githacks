@@ -1,0 +1,20 @@
+:root {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --accent: #3b82f6;
+    --text: #e2e8f0;
+    --border: #334155;
+}
+
+body {
+    background: var(--bg-primary);
+    color: var(--text);
+}
+
+.card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+/* More dark professional styles... */ 

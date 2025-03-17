@@ -1,0 +1,38 @@
+:root {
+    --retro-pink: #ff00ff;
+    --retro-blue: #00ffff;
+    --retro-purple: #9900ff;
+    --grid-color: rgba(255, 0, 255, 0.2);
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background: #000;
+    color: #fff;
+}
+
+.retro-grid {
+    position: fixed;
+    inset: 0;
+    background: 
+        linear-gradient(transparent 0%, rgba(0,0,0,0.8) 60%),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px),
+        linear-gradient(var(--grid-color) 1px, transparent 1px);
+    background-size: 100% 100%, 30px 30px, 30px 30px;
+    transform: perspective(500px) rotateX(60deg);
+    animation: grid-move 20s linear infinite;
+    z-index: -1;
+}
+
+.card {
+    border: 2px solid var(--retro-pink);
+    background: rgba(0,0,0,0.8);
+    box-shadow: 0 0 20px var(--retro-blue);
+}
+
+@keyframes grid-move {
+    from { transform: perspective(500px) rotateX(60deg) translateY(0); }
+    to { transform: perspective(500px) rotateX(60deg) translateY(30px); }
+}
+
+/* More retro/synthwave styles... */ 

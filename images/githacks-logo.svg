@@ -1,0 +1,10 @@
+<svg width="200" height="50" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .text { font-family: Arial, sans-serif; font-weight: bold; }
+        .git { fill: #2563eb; }
+        .hacks { fill: #1f2937; }
+    </style>
+    <text x="10" y="35" class="text git">GIT</text>
+    <text x="70" y="35" class="text hacks">HACKS</text>
+    <path d="M60 15 L65 25 L55 25 Z" fill="#2563eb"/>
+</svg> 

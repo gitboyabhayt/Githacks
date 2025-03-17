@@ -1,0 +1,246 @@
+/* Glitch Effect */
+@keyframes glitch {
+  0% {
+    clip-path: inset(71% 0 10% 0);
+    transform: translate(-2px, 2px);
+  }
+  20% {
+    clip-path: inset(29% 0 71% 0);
+    transform: translate(-2px, -2px);
+  }
+  40% {
+    clip-path: inset(57% 0 43% 0);
+    transform: translate(2px, 2px);
+  }
+  60% {
+    clip-path: inset(14% 0 86% 0);
+    transform: translate(2px, -2px);
+  }
+  80% {
+    clip-path: inset(86% 0 14% 0);
+    transform: translate(-2px, 2px);
+  }
+  100% {
+    clip-path: inset(43% 0 57% 0);
+    transform: translate(2px, -2px);
+  }
+}
+
+@keyframes grid-move {
+  from { transform: perspective(500px) rotateX(60deg) translateY(0); }
+  to { transform: perspective(500px) rotateX(60deg) translateY(30px); }
+}
+
+.glitch-text {
+  position: relative;
+  animation: glitch 1s infinite;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text::before {
+  left: 2px;
+  text-shadow: -2px 0 var(--primary);
+  clip: rect(24px, 550px, 90px, 0);
+  animation: glitch-anim 3s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+  left: -2px;
+  text-shadow: -2px 0 var(--accent);
+  clip: rect(85px, 550px, 140px, 0);
+  animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+
+/* Card Hover Animation */
+@keyframes cardHover {
+    0% {
+        transform: translateY(0);
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+    100% {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+}
+
+/* Glow Effect */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(var(--accent-rgb), 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.8);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(var(--accent-rgb), 0.5);
+    }
+}
+
+/* Progress Bar Loading */
+@keyframes progressLoad {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+    100% {
+        width: var(--progress);
+        opacity: 1;
+    }
+}
+
+/* Button Shine Effect */
+@keyframes buttonShine {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(200%) rotate(45deg);
+    }
+}
+
+/* Card Entrance Animation */
+@keyframes cardEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply Animations */
+.course-card {
+    animation: cardEntrance 0.5s ease forwards;
+}
+
+.course-card:hover {
+    animation: cardHover 0.3s ease forwards;
+}
+
+.btn-enroll:hover::after {
+    animation: buttonShine 1s ease;
+}
+
+.progress-bar::after {
+    animation: progressLoad 1s ease forwards;
+}
+
+/* Text Animation */
+.animated-text {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+.typing-text {
+    position: relative;
+    display: inline-block;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.typing-text::after {
+    content: '|';
+    position: absolute;
+    right: -8px;
+    animation: blink 0.7s infinite;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Hover Effects */
+.nav-links a {
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.feature-card {
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    box-shadow: 0 10px 20px var(--shadow-color);
+}
+
+/* Theme Toggle Animation */
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background-color: var(--card-background);
+}
+
+.theme-toggle i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.theme-toggle .fa-sun {
+    opacity: 1;
+}
+
+.theme-toggle .fa-moon {
+    opacity: 0;
+}
+
+[data-theme="dark"] .theme-toggle .fa-sun {
+    opacity: 0;
+}
+
+[data-theme="dark"] .theme-toggle .fa-moon {
+    opacity: 1;
+}

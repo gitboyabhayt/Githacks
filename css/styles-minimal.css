@@ -1,0 +1,48 @@
+:root {
+    --primary: #2563eb;
+    --text: #1f2937;
+    --background: #ffffff;
+    --card: #f8fafc;
+    --border: #e2e8f0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.navbar {
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.hero {
+    padding: 6rem 0;
+    background: linear-gradient(to right, #f8fafc, #f1f5f9);
+    text-align: center;
+}
+
+.search-box {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.5rem;
+    max-width: 500px;
+    margin: 2rem auto;
+}
+
+.category-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: transform 0.2s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+}
+
+/* More minimal styles... */ 

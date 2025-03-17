@@ -1,0 +1,247 @@
+/* Support Styles */
+.support-header {
+    padding: 4rem 0;
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('../assets/support/header-bg.jpg') center/cover;
+    margin-bottom: 3rem;
+}
+
+.support-header .header-desc {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 1rem auto;
+}
+
+/* Search Bar */
+.search-container {
+    max-width: 600px;
+    margin: 2rem auto 0;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.search-container input {
+    flex: 1;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+}
+
+.search-btn {
+    background: var(--neon-cyan);
+    color: var(--dark-bg);
+    border: none;
+    padding: 0 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+    background: var(--neon-cyan-hover);
+    transform: translateY(-2px);
+}
+
+/* Quick Links */
+.quick-links {
+    margin-bottom: 4rem;
+}
+
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.quick-link {
+    padding: 2rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.quick-link:hover {
+    transform: translateY(-5px);
+}
+
+.quick-link i {
+    font-size: 2.5rem;
+    color: var(--neon-cyan);
+    margin-bottom: 1rem;
+}
+
+.quick-link h3 {
+    margin-bottom: 0.5rem;
+}
+
+.quick-link p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Popular Topics */
+.popular-topics {
+    margin-bottom: 4rem;
+}
+
+.topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.topic-card {
+    padding: 2rem;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.topic-icon {
+    font-size: 2rem;
+    color: var(--neon-cyan);
+}
+
+.topic-content h3 {
+    margin-bottom: 1rem;
+}
+
+.topic-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.topic-content li {
+    margin-bottom: 0.5rem;
+}
+
+.topic-content a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.topic-content a:hover {
+    color: var(--neon-cyan);
+}
+
+/* Live Chat Section */
+.live-chat-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 3rem;
+    margin-bottom: 4rem;
+    align-items: center;
+}
+
+.chat-content {
+    padding-right: 2rem;
+}
+
+.chat-content h2 {
+    margin-bottom: 1rem;
+}
+
+.chat-content p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.chat-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+/* Support Status */
+.support-status {
+    margin-bottom: 4rem;
+}
+
+.status-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.status-card {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.status-icon {
+    font-size: 1.5rem;
+}
+
+.status-icon.operational {
+    color: #00ff00;
+}
+
+.status-icon.maintenance {
+    color: #ffa500;
+}
+
+.status-icon.error {
+    color: #ff0000;
+}
+
+.status-content h3 {
+    margin-bottom: 0.5rem;
+}
+
+.status-content p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .support-header {
+        padding: 3rem 0;
+    }
+
+    .live-chat-section {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .chat-content {
+        padding-right: 0;
+    }
+
+    .chat-image {
+        order: -1;
+    }
+
+    .topic-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}

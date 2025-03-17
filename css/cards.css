@@ -1,0 +1,120 @@
+/* Card Design System */
+:root {
+    --card-bg: rgba(16, 16, 16, 0.8);
+    --card-border: rgba(0, 255, 255, 0.2);
+    --card-glow: rgba(0, 255, 255, 0.1);
+    --card-hover-glow: rgba(0, 255, 255, 0.3);
+    --glass-blur: blur(10px);
+}
+
+/* Card Grid Layout */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Base Card Styles */
+.cyber-card {
+    background: var(--card-bg);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px var(--card-glow);
+}
+
+.cyber-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--card-border), transparent);
+}
+
+/* Card Header */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card-icon {
+    font-size: 1.5rem;
+    color: var(--card-border);
+}
+
+.card-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.25rem;
+    color: #fff;
+    margin: 0;
+}
+
+/* Card Content */
+.card-content {
+    color: #e0e0e0;
+    font-family: 'Share Tech Mono', monospace;
+    line-height: 1.6;
+}
+
+/* Card Footer */
+.card-footer {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--card-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Card Hover Effects */
+.cyber-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px var(--card-hover-glow);
+}
+
+.cyber-card:hover::before {
+    animation: neon-scan 2s linear infinite;
+}
+
+/* Card Variants */
+.cyber-card.featured {
+    grid-column: 1 / -1;
+    background: linear-gradient(45deg, var(--card-bg), rgba(0, 255, 255, 0.1));
+}
+
+.cyber-card.compact {
+    padding: 1rem;
+}
+
+/* Card Animations */
+@keyframes neon-scan {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    
+    .cyber-card {
+        padding: 1rem;
+    }
+}

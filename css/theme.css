@@ -1,0 +1,126 @@
+:root {
+    --primary-color: #0077B6;
+    --secondary-color: #00B4D8;
+    --accent-color: #90E0EF;
+    --background-dark: #03045E;
+    --background-light: #CAF0F8;
+    --text-light: #FFFFFF;
+    --text-dark: #023E8A;
+    --success-color: #38B000;
+    --warning-color: #FFBA08;
+    --error-color: #D00000;
+}
+
+[data-theme="dark"] {
+    --bg-primary: var(--background-dark);
+    --bg-secondary: #0A1128;
+    --text-primary: var(--text-light);
+    --text-secondary: #ADB5BD;
+    --card-bg: #001845;
+    --border-color: #1E3A8A;
+}
+
+[data-theme="light"] {
+    --bg-primary: var(--background-light);
+    --bg-secondary: #F8F9FA;
+    --text-primary: var(--text-dark);
+    --text-secondary: #495057;
+    --card-bg: #FFFFFF;
+    --border-color: #DEE2E6;
+}
+
+/* Base Styles */
+body {
+    font-family: var(--font-family);
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: var(--transition-base);
+}
+
+/* Theme Transition Class */
+.theme-transition * {
+    transition: var(--transition-base);
+}
+
+/* Selection */
+::selection {
+    background-color: var(--primary-color);
+    color: var(--bg-primary);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
+/* Focus Styles */
+:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    box-shadow: var(--glow-sm);
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: var(--z-50);
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: var(--radius-full);
+    background: var(--card-bg);
+    color: var(--text-primary);
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-base);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-lg), var(--glow-sm);
+}
+
+.theme-toggle-spin {
+    animation: spin 0.5s ease-in-out;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}

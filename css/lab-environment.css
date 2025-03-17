@@ -1,0 +1,317 @@
+/* Lab Environment Styles */
+:root {
+    --neon-blue: #00f3ff;
+    --neon-purple: #9d00ff;
+    --neon-green: #39ff14;
+    --dark-bg: #0a0a0a;
+    --glass-bg: rgba(16, 16, 16, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+/* Glassmorphism */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Authentication Overlay */
+.auth-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.auth-container {
+    width: 90%;
+    max-width: 500px;
+    padding: 2rem;
+    animation: slideUp 0.5s ease-out;
+}
+
+/* Cyber Form */
+.cyber-form {
+    margin-top: 2rem;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-blue);
+    font-family: 'Share Tech Mono', monospace;
+    transition: all 0.3s;
+}
+
+.form-group label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--neon-blue);
+    transition: all 0.3s;
+    pointer-events: none;
+}
+
+.form-group input:focus + label,
+.form-group input:valid + label {
+    top: -10px;
+    font-size: 0.8em;
+    background: var(--dark-bg);
+    padding: 0 5px;
+}
+
+/* Lab Interface */
+.lab-interface {
+    display: grid;
+    grid-template-columns: 250px 1fr 300px;
+    gap: 1rem;
+    padding: 1rem;
+    height: 100vh;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-out;
+}
+
+.lab-interface.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Lab Navigation */
+.lab-nav {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.avatar-container {
+    position: relative;
+}
+
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--neon-blue);
+}
+
+.status-indicator {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--neon-green);
+    border: 2px solid var(--dark-bg);
+    animation: pulse 2s infinite;
+}
+
+/* Lab Grid */
+.lab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+/* Lab Card */
+.lab-card {
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.lab-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+}
+
+.difficulty-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    background: rgba(57, 255, 20, 0.2);
+    color: var(--neon-green);
+}
+
+/* Activity Feed */
+.activity-feed {
+    padding: 1rem;
+}
+
+.feed-container {
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+}
+
+.activity-item {
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--glass-border);
+    font-size: 0.9em;
+}
+
+/* Animations */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(57, 255, 20, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(57, 255, 20, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(57, 255, 20, 0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .lab-interface {
+        grid-template-columns: 200px 1fr;
+    }
+    .activity-feed {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .lab-interface {
+        grid-template-columns: 1fr;
+    }
+    .lab-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        z-index: 100;
+    }
+}
+
+/* Enhanced Lab Card Animations */
+.lab-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(0, 243, 255, 0.1),
+        rgba(0, 243, 255, 0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    animation: shimmer 3s infinite;
+    pointer-events: none;
+}
+
+/* Launch Button Enhancement */
+.launch-btn {
+    position: relative;
+    background: transparent;
+    border: 2px solid var(--neon-blue);
+    color: var(--neon-blue);
+    padding: 10px 20px;
+    font-family: 'Share Tech Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    overflow: hidden;
+    transition: all 0.3s;
+    z-index: 1;
+}
+
+.launch-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--neon-blue);
+    transition: transform 0.3s ease-out;
+    z-index: -1;
+}
+
+.launch-btn:hover {
+    color: var(--dark-bg);
+}
+
+.launch-btn:hover::before {
+    transform: translateX(100%);
+}
+
+/* Progress Bar Animation */
+.progress-indicator {
+    margin-top: 1rem;
+}
+
+.progress-bar {
+    height: 4px;
+    background: rgba(0, 243, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: var(--progress, 0%);
+    width: 100%;
+    height: 100%;
+    background: var(--neon-blue);
+    transition: left 0.3s ease;
+}
+
+/* New Animations */
+@keyframes shimmer {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
+
+@keyframes terminalBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+} 
