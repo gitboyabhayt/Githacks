@@ -1,0 +1,187 @@
+/* Revenue Analytics Section Styles */
+.revenue-analytics {
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 15px;
+    background: rgba(16, 20, 24, 0.8);
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.revenue-analytics:hover {
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.section-header h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #00ffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    margin: 0;
+}
+
+.time-controls {
+    display: flex;
+    gap: 1rem;
+}
+
+.time-btn {
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    color: #00ffff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.time-btn:hover {
+    background: rgba(0, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.time-btn.active {
+    background: rgba(0, 255, 255, 0.3);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.revenue-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.revenue-card {
+    background: rgba(20, 24, 28, 0.8);
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.revenue-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
+}
+
+.revenue-icon {
+    background: rgba(0, 255, 255, 0.1);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.revenue-icon i {
+    color: #00ffff;
+    font-size: 1.5rem;
+}
+
+.revenue-info h4 {
+    color: #ffffff;
+    margin: 0 0 0.5rem 0;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.revenue-amount {
+    font-size: 1.5rem;
+    color: #00ffff;
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.trend-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+.trend-badge.positive {
+    background: rgba(0, 255, 0, 0.1);
+    color: #00ff00;
+}
+
+.trend-badge.negative {
+    background: rgba(255, 0, 0, 0.1);
+    color: #ff0000;
+}
+
+.revenue-chart-container {
+    background: rgba(20, 24, 28, 0.8);
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    height: 300px;
+}
+
+.revenue-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-item {
+    background: rgba(20, 24, 28, 0.8);
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 3px 10px rgba(0, 255, 255, 0.2);
+}
+
+.stat-item h5 {
+    color: #ffffff;
+    margin: 0 0 0.5rem 0;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.stat-item p {
+    color: #00ffff;
+    font-size: 1.25rem;
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 5px rgba(0, 255, 255, 0.2); }
+    50% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.4); }
+    100% { box-shadow: 0 0 5px rgba(0, 255, 255, 0.2); }
+}
+
+.revenue-card:hover .revenue-icon {
+    animation: pulse 1s infinite;
+}
+
+.revenue-analytics:hover {
+    animation: glow 2s infinite;
+}

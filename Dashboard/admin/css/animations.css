@@ -1,0 +1,105 @@
+/* Loading Animation */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--admin-primary), var(--admin-secondary));
+    z-index: 9999;
+    animation: loadingProgress 1s ease infinite;
+}
+
+@keyframes loadingProgress {
+    0% { transform: scaleX(0); transform-origin: left; }
+    49% { transform: scaleX(1); transform-origin: left; }
+    50% { transform: scaleX(1); transform-origin: right; }
+    100% { transform: scaleX(0); transform-origin: right; }
+}
+
+/* Notification Animations */
+.admin-notification {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 15px 25px;
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid var(--admin-border);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 9999;
+    backdrop-filter: blur(10px);
+}
+
+.admin-notification i {
+    font-size: 1.2em;
+}
+
+.admin-notification.success i { color: var(--admin-success); }
+.admin-notification.error i { color: var(--admin-danger); }
+.admin-notification.warning i { color: var(--admin-warning); }
+.admin-notification.info i { color: var(--admin-secondary); }
+
+/* Activity List Animations */
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.activity-item:hover {
+    transform: translateX(5px);
+    background: rgba(0, 255, 136, 0.1);
+}
+
+.activity-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+}
+
+.activity-icon.user { background: rgba(0, 255, 136, 0.1); color: var(--admin-primary); }
+.activity-icon.course { background: rgba(0, 204, 255, 0.1); color: var(--admin-secondary); }
+.activity-icon.alert { background: rgba(255, 68, 68, 0.1); color: var(--admin-danger); }
+
+.activity-details p {
+    color: var(--admin-text);
+    margin-bottom: 5px;
+}
+
+.activity-details span {
+    color: var(--admin-text-dim);
+    font-size: 0.8em;
+}
+
+/* Chart Animations */
+.chart-card {
+    transition: all 0.3s ease;
+}
+
+.chart-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
+}
+
+/* Hover Effects */
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 10px rgba(0, 255, 136, 0.2); }
+    50% { box-shadow: 0 0 20px rgba(0, 255, 136, 0.4); }
+    100% { box-shadow: 0 0 10px rgba(0, 255, 136, 0.2); }
+}
+
+.stat-card:hover {
+    animation: glowPulse 2s infinite;
+} 

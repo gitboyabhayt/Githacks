@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | GITHACKS</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/revenue.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/nav-responsive.css">
+    
+    <!-- Custom JS -->
+    <script src="js/revenue.js" defer></script>
+    <script src="js/profile.js" defer></script>
+    <script src="js/nav-responsive.js" defer></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1 class="cyber-glitch logo-text" data-text="GITHACKS">GITHACKS</h1>
+            </div>
+            <div class="nav-links-container">
+                <ul class="nav-links">
+                    <li class="nav-item"><a href="../index.html" class="cyber-link">Home</a></li>
+                    <li class="nav-item"><a href="../certification/index.html" class="cyber-link">Certifications</a></li>
+                    <li class="nav-item"><a href="../tools/index.html" class="cyber-link">Tools</a></li>
+                    <li class="nav-item"><a href="index.html" class="cyber-link active">Admin</a></li>
+                </ul>
+            </div>
+            <div class="nav-controls">
+                <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="profile-dropdown">
+                    <button class="profile-btn" id="profileBtn">
+                        <img src="../../assets/images/avatars/admin-avatar.png" alt="Admin Profile" class="profile-avatar">
+                        <span class="profile-name">Admin User</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="profile-menu" id="profileMenu">
+                        <div class="profile-header">
+                            <img src="../../assets/images/avatars/admin-avatar.png" alt="Admin Profile" class="profile-menu-avatar">
+                            <div class="profile-info">
+                                <h4 class="profile-fullname">Admin User</h4>
+                                <p class="profile-email">admin@githacks.com</p>
+                            </div>
+                        </div>
+                        <div class="profile-menu-items">
+                            <a href="profile/index.html" class="profile-menu-item">
+                                <i class="fas fa-user"></i> My Profile
+                            </a>
+                            <a href="settings/index.html" class="profile-menu-item">
+                                <i class="fas fa-cog"></i> Settings
+                            </a>
+                            <a href="security/index.html" class="profile-menu-item">
+                                <i class="fas fa-shield-alt"></i> Security
+                            </a>
+                            <div class="profile-menu-divider"></div>
+                            <a href="../../auth/index.html" class="profile-menu-item text-danger">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <button class="theme-toggle" id="themeToggle">
+                    <div class="toggle-icons">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <div class="toggle-track">
+                        <div class="toggle-circle"></div>
+                    </div>
+                    <div class="toggle-glow"></div>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Dashboard -->
+    <main class="admin-dashboard">
+        <!-- Security Metrics Grid -->
+        <section class="security-metrics-grid">
+            <div class="metric-card glass-effect">
+                <div class="metric-header">
+                    <h3>System Security Status</h3>
+                    <span class="live-badge">LIVE</span>
+                </div>
+                <div class="metric-content">
+                    <div class="status-indicator active">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>All Systems Operational</span>
+                    </div>
+                    <div class="metric-stats">
+                        <div class="stat">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Uptime: 99.99%</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-clock"></i>
+                            <span id="lastScanTime">Last Scan: 2 minutes ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metric-card glass-effect">
+                <div class="metric-header">
+                    <h3>Threat Detection</h3>
+                    <button class="refresh-btn"><i class="fas fa-sync-alt"></i></button>
+                </div>
+                <div class="metric-content">
+                    <div class="threat-stats">
+                        <div class="stat-circle">
+                            <svg viewBox="0 0 100 100">
+                                <circle class="progress" cx="50" cy="50" r="45"></circle>
+                            </svg>
+                            <span class="stat-number">0</span>
+                        </div>
+                        <span class="stat-label">Active Threats</span>
+                    </div>
+                    <div class="threat-list" id="threatList">
+                        <!-- Threats will be populated dynamically -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security Log Terminal -->
+        <section class="security-terminal glass-effect">
+            <div class="terminal-header">
+                <h3>Security Log</h3>
+                <span class="live-badge pulse">LIVE</span>
+            </div>
+            <div class="terminal-window">
+                <div class="terminal-controls">
+                    <span class="terminal-button"></span>
+                    <span class="terminal-button"></span>
+                    <span class="terminal-button"></span>
+                </div>
+                <div class="terminal-content" id="securityLog">
+                    <!-- Log entries will be added dynamically -->
+                </div>
+            </div>
+        </section>
+        <!-- Revenue Analytics Section -->
+        <section class="revenue-analytics glass-effect">
+            <div class="section-header">
+                <h3>Revenue Analytics</h3>
+                <div class="time-controls">
+                    <button class="time-btn active" data-time="day">24H</button>
+                    <button class="time-btn" data-time="week">7D</button>
+                    <button class="time-btn" data-time="month">30D</button>
+                </div>
+            </div>
+            <div class="revenue-grid">
+                <div class="revenue-card">
+                    <div class="revenue-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="revenue-info">
+                        <h4>Total Revenue</h4>
+                        <p class="revenue-amount" id="totalRevenue">$124,500</p>
+                        <span class="trend-badge positive">
+                            <i class="fas fa-arrow-up"></i> 12.5%
+                        </span>
+                    </div>
+                </div>
+                <div class="revenue-card">
+                    <div class="revenue-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <div class="revenue-info">
+                        <h4>New Subscriptions</h4>
+                        <p class="revenue-amount" id="newSubs">245</p>
+                        <span class="trend-badge positive">
+                            <i class="fas fa-arrow-up"></i> 8.3%
+                        </span>
+                    </div>
+                </div>
+                <div class="revenue-card">
+                    <div class="revenue-icon">
+                        <i class="fas fa-sync"></i>
+                    </div>
+                    <div class="revenue-info">
+                        <h4>Recurring Revenue</h4>
+                        <p class="revenue-amount" id="recurringRevenue">$98,750</p>
+                        <span class="trend-badge positive">
+                            <i class="fas fa-arrow-up"></i> 15.2%
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="revenue-chart-container">
+                <canvas id="revenueChart"></canvas>
+            </div>
+            <div class="revenue-stats-grid">
+                <div class="stat-item">
+                    <h5>Conversion Rate</h5>
+                    <p id="conversionRate">4.8%</p>
+                </div>
+                <div class="stat-item">
+                    <h5>Avg. Transaction</h5>
+                    <p id="avgTransaction">$485</p>
+                </div>
+                <div class="stat-item">
+                    <h5>Customer LTV</h5>
+                    <p id="customerLtv">$2,450</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="cyber-footer">
+        <div class="footer-info">
+            <p>&copy; 2024 GITHACKS. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="../legal/privacy.html" class="footer-link">Privacy Policy</a>
+                <a href="../legal/terms.html" class="footer-link">Terms of Service</a>
+                <a href="../blog/index.html" class="footer-link">Blog</a>
+                <a href="../certification/index.html" class="footer-link">Certifications</a>
+                <a href="../contact/index.html" class="footer-link">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../../js/theme.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/security-monitor.js"></script>
+</body>
+</html>

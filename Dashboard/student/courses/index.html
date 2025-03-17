@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GITHACKS - My Courses</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/courses.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+    <!-- Matrix Canvas Background -->
+    <canvas id="matrixBg"></canvas>
+
+    <div class="courses-container">
+        <!-- Header Section -->
+        <header class="courses-header">
+            <div class="title-section">
+                <i class="fas fa-graduation-cap"></i>
+                <h1>My Courses</h1>
+            </div>
+            <div class="search-filters">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search courses...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="filters">
+                    <select>
+                        <option>All Levels</option>
+                        <option>Beginner</option>
+                        <option>Intermediate</option>
+                        <option>Advanced</option>
+                    </select>
+                    <select>
+                        <option>All Categories</option>
+                        <option>Network Security</option>
+                        <option>Web Security</option>
+                        <option>Malware Analysis</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+
+        <!-- Course Progress Overview -->
+        <div class="progress-overview">
+            <div class="progress-stat">
+                <div class="stat-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Active Courses</h3>
+                    <span>4 of 6</span>
+                </div>
+            </div>
+            <div class="progress-stat">
+                <div class="stat-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Completed</h3>
+                    <span>2 Courses</span>
+                </div>
+            </div>
+            <div class="progress-stat">
+                <div class="stat-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Learning Time</h3>
+                    <span>45 Hours</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Courses Grid -->
+        <div class="courses-grid">
+            <!-- Ethical Hacking Course -->
+            <div class="course-card">
+                <div class="course-banner">
+                    <img src="../assets/courses/ethical-hacking.jpg" alt="Ethical Hacking">
+                    <div class="course-level advanced">Advanced</div>
+                    <div class="course-duration">40 Hours</div>
+                </div>
+                <div class="course-content">
+                    <h3>Advanced Ethical Hacking</h3>
+                    <p>Master advanced penetration testing and security assessment techniques.</p>
+                    <div class="progress-section">
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 75%"></div>
+                        </div>
+                        <span>75% Complete</span>
+                    </div>
+                    <div class="course-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-book-open"></i>
+                            <span>12 Modules</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-trophy"></i>
+                            <span>5 Certificates</span>
+                        </div>
+                    </div>
+                    <button class="continue-btn">Continue Learning</button>
+                </div>
+            </div>
+
+            <!-- Web Security Course -->
+            <div class="course-card">
+                <div class="course-banner">
+                    <img src="../assets/courses/web-security.jpg" alt="Web Security">
+                    <div class="course-level intermediate">Intermediate</div>
+                    <div class="course-duration">35 Hours</div>
+                </div>
+                <div class="course-content">
+                    <h3>Web Application Security</h3>
+                    <p>Learn to identify and exploit web vulnerabilities safely.</p>
+                    <div class="progress-section">
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 45%"></div>
+                        </div>
+                        <span>45% Complete</span>
+                    </div>
+                    <div class="course-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-book-open"></i>
+                            <span>10 Modules</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-trophy"></i>
+                            <span>3 Certificates</span>
+                        </div>
+                    </div>
+                    <button class="continue-btn">Start Learning</button>
+                </div>
+            </div>
+
+            <!-- Malware Analysis Course -->
+            <div class="course-card">
+                <div class="course-banner">
+                    <img src="../assets/courses/malware.jpg" alt="Malware Analysis">
+                    <div class="course-level expert">Expert</div>
+                    <div class="course-duration">50 Hours</div>
+                </div>
+                <div class="course-content">
+                    <h3>Advanced Malware Analysis</h3>
+                    <p>Deep dive into malware reverse engineering and analysis.</p>
+                    <div class="progress-section">
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 15%"></div>
+                        </div>
+                        <span>15% Complete</span>
+                    </div>
+                    <div class="course-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-book-open"></i>
+                            <span>15 Modules</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-trophy"></i>
+                            <span>4 Certificates</span>
+                        </div>
+                    </div>
+                    <button class="enroll-btn">Enroll Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommended Courses -->
+        <section class="recommended-courses">
+            <h2>Recommended for You</h2>
+            <div class="courses-slider">
+                <!-- Recommended course cards -->
+            </div>
+        </section>
+    </div>
+
+    <script src="../js/matrix.js"></script>
+    <script src="../js/courses.js"></script>
+</body>
+</html> 

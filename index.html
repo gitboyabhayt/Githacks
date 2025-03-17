@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>GITHACKS - Cyber Security Training</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/glitch.css">
+    <link rel="stylesheet" href="styles/footer.css">
+</head>
+<body>
+    <!-- Matrix Background -->
+    <canvas id="matrixBg"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="cyber-logo">
+                    <div class="logo-shield">
+                        <i class="fas fa-shield-alt"></i>
+                        <div class="shield-glow"></div>
+                    </div>
+                    <h1 class="logo-text">
+                        <span class="glitch-text" data-text="GITHACKS">GITHACKS</span>
+                        <div class="circuit-lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </h1>
+                    <div class="logo-circuit-bg"></div>
+                </div>
+            </div>
+            <button class="mobile-menu-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <div class="nav-links-container" id="mobileMenu">
+                <ul class="nav-links">
+                    <li class="nav-item">
+                        <a href="/" class="cyber-link active">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                            <div class="link-hover-effect"></div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/courses" class="cyber-link">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Courses</span>
+                            <div class="link-hover-effect"></div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/tools" class="cyber-link">
+                            <i class="fas fa-tools"></i>
+                            <span>Tools</span>
+                            <div class="link-hover-effect"></div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/books" class="cyber-link">
+                            <i class="fas fa-book"></i>
+                            <span>Books</span>
+                            <div class="link-hover-effect"></div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/auth/index.html" class="cyber-link">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                            <div class="link-hover-effect"></div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-controls">
+                <button class="theme-toggle">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                    <div class="toggle-track"></div>
+                </button>
+                <a href="/auth" class="auth-btn">
+                    <span class="auth-btn-content">
+                        <i class="fas fa-user-shield"></i>
+                        <span>Login</span>
+                    </span>
+                    <div class="btn-glow"></div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="cyber-grid"></div>
+        <div class="matrix-overlay"></div>
+        <div class="hero-content">
+            <div class="glitch-container">
+                <h1 class="cyber-glitch" data-text="GITHACKS">GITHACKS</h1>
+                <div class="cyber-terminal">
+                    <span class="terminal-prompt">$</span>
+                    <span class="terminal-text" id="terminalText"></span>
+                    <span class="terminal-cursor">_</span>
+                </div>
+            </div>
+            <p class="cyber-subtitle">Advanced Cybersecurity Training Platform</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="counter" data-target="1000">400</span>
+                    <span class="stat-label">Students Trained</span>
+                </div>
+                <div class="stat-item">
+                    <span class="counter" data-target="50">5</span>
+                    <span class="stat-label">Active Courses</span>
+                </div>
+                <div class="stat-item">
+                    <span class="counter" data-target="95">100%</span>
+                    <span class="stat-label">Success Rate</span>
+                </div>
+            </div>
+            <div class="cta-buttons">
+                <a href="courses/index.html" class="cyber-button primary">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Start Learning
+                </a>
+                <a href="#features" class="cyber-button secondary">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Explore Features
+                </a>
+            </div>
+        </div>
+        <div class="hero-decoration">
+            <div class="cyber-circle"></div>
+            <div class="cyber-lines"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2 class="section-title cyber-glitch" data-text="Training Modules">Training Modules</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="card-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Web Security</h3>
+                <p>Master web application security, XSS, CSRF, and SQL injection techniques</p>
+                <div class="card-stats">
+                    <span><i class="fas fa-clock"></i> 40 Hours</span>
+                    <span><i class="fas fa-user-graduate"></i> 2.5K Students</span>
+                </div>
+                <a href="courses\index.html" class="cyber-button small">Learn More</a>
+            </div>
+
+            <div class="feature-card">
+                <div class="card-icon">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <h3>Network Penetration</h3>
+                <p>Advanced network penetration testing and vulnerability assessment</p>
+                <div class="card-stats">
+                    <span><i class="fas fa-clock"></i> 45 Hours</span>
+                    <span><i class="fas fa-user-graduate"></i> 1.8K Students</span>
+                </div>
+                <a href="courses\index.html" class="cyber-button small">Learn More</a>
+            </div>
+
+            <div class="feature-card">
+                <div class="card-icon">
+                    <i class="fas fa-bug"></i>
+                </div>
+                <h3>Malware Analysis</h3>
+                <p>Reverse engineering and malware analysis techniques</p>
+                <div class="card-stats">
+                    <span><i class="fas fa-clock"></i> 35 Hours</span>
+                    <span><i class="fas fa-user-graduate"></i> 1.2K Students</span>
+                </div>
+                <a href="courses/index.html" class="cyber-button small">Learn More</a>
+            </div>
+
+            <div class="feature-card">
+                <div class="card-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Mobile Security</h3>
+                <p>Mobile application security testing and vulnerability assessment</p>
+                <div class="card-stats">
+                    <span><i class="fas fa-clock"></i> 30 Hours</span>
+                    <span><i class="fas fa-user-graduate"></i> 1.5K Students</span>
+                </div>
+                <a href="courses/index.html" class="cyber-button small">Learn More</a>
+            </div>
+
+            <div class="feature-card">
+                <div class="card-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <h3>Cloud Security</h3>
+                <p>Secure cloud infrastructure and AWS/Azure security testing</p>
+                <div class="card-stats">
+                    <span><i class="fas fa-clock"></i> 50 Hours</span>
+                    <span><i class="fas fa-user-graduate"></i> 900 Students</span>
+                </div>
+                <a href="courses/index.html" class="cyber-button small">Learn More</a>
+            </div>
+
+            <div class="feature-card">
+                <div class="card-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Secure Coding</h3>
+                <p>Learn to write secure code and identify vulnerabilities</p>
+                <div class="card-stats">
+                    <span><i class="fas fa-clock"></i> 38 Hours</span>
+                    <span><i class="fas fa-user-graduate"></i> 2K Students</span>
+                </div>
+                <a href="courses/index.html" class="cyber-button small">Learn More</a>
+            </div>
+
+            <div class="feature-card">
+                <div class="card-icon">
+                    <i class="fab fa-linux"></i>
+                </div>
+                <h3>Linux Security</h3>
+                <p>Master Linux system security, hardening, and penetration testing</p>
+                <div class="card-stats">
+                    <span><i class="fas fa-clock"></i> 42 Hours</span>
+                    <span><i class="fas fa-user-graduate"></i> 1.7K Students</span>
+                </div>
+                <a href="courses/index.html" class="cyber-button small">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mentor Section -->
+    <section class="mentor">
+        <h2 class="section-title cyber-glitch" data-text="Lead Instructor">Lead Instructor</h2>
+        <div class="mentor-card">
+            <div class="mentor-profile">
+                <div class="mentor-image">
+                    <img src="img/mentor.jpg" alt="Khanda Anum">
+                    <div class="cyber-overlay"></div>
+                    <div class="status-badge">
+                        <span class="pulse"></span>
+                        Active Instructor
+                    </div>
+                </div>
+                <div class="certification-badges">
+                    <span class="badge"><i class="fas fa-shield-alt"></i> OSCP</span>
+                    <span class="badge"><i class="fas fa-award"></i> CEH</span>
+                    <span class="badge"><i class="fas fa-certificate"></i> CISSP</span>
+                </div>
+            </div>
+            <div class="mentor-info">
+                <div class="mentor-header">
+                    <h3 class="cyber-glitch">Khanda Anum</h3>
+                    <p class="title">Chief Security Researcher & Lead Instructor</p>
+                </div>
+                <div class="mentor-stats">
+                    <div class="stat">
+                        <span class="value">5+</span>
+                        <span class="label">Years Experience</span>
+                    </div>
+                    <div class="stat">
+                        <span class="value">200+</span>
+                        <span class="label">CVEs Published</span>
+                    </div>
+                    <div class="stat">
+                        <span class="value">5000+</span>
+                        <span class="label">Students Trained</span>
+                    </div>
+                </div>
+                <div class="mentor-bio">
+                    <p>Former NSA Security Expert with extensive experience in advanced cyber security operations, vulnerability research, and threat analysis. Specialized in reverse engineering and zero-day exploit development.</p>
+                </div>
+                <div class="mentor-achievements">
+                    <h4>Key Achievements</h4>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Lead researcher in major vulnerability discoveries</li>
+                        <li><i class="fas fa-check-circle"></i> Published author in cyber security</li>
+                        <li><i class="fas fa-check-circle"></i> Keynote speaker at BlackHat & DefCon</li>
+                    </ul>
+                </div>
+                <div class="mentor-connect">
+                    <div class="social-links">
+                        <a href="#" class="neon-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="neon-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="neon-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="neon-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <a href="#contact" class="cyber-button small">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Connect with Mentor
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <h2 class="section-title cyber-glitch" data-text="Elite Team">Elite Team</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="member-image">
+                    <img src="img/team/sarah.jpg" alt="Chandan Pandey">
+                    <div class="cyber-overlay"></div>
+                </div>
+                <div class="member-info">
+                    <h3 class="neon-text">Chandan Pandey</h3>
+                    <p class="role">Security Research Lead</p>
+                    <p class="specialty">Specialization: Zero-day Vulnerability Research</p>
+                    <div class="member-stats">
+                        <span><i class="fas fa-shield-alt"></i> 150+ CVEs</span>
+                        <span><i class="fas fa-code-branch"></i> 200+ Commits</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="neon-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="neon-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="neon-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="member-image">
+                    <img src="img/team/michael.jpg" alt="Jayprakash Yadav">
+                    <div class="cyber-overlay"></div>
+                </div>
+                <div class="member-info">
+                    <h3 class="neon-text">Jayprakash Yadav</h3>
+                    <p class="role">Malware Analysis Expert</p>
+                    <p class="specialty">Specialization: Reverse Engineering</p>
+                    <div class="member-stats">
+                        <span><i class="fas fa-bug"></i> 300+ Samples</span>
+                        <span><i class="fas fa-trophy"></i> CTF Champion</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="neon-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="neon-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="neon-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="member-image">
+                    <img src="img/team/emma.jpg" alt="Shivansh Dixit">
+                    <div class="cyber-overlay"></div>
+                </div>
+                <div class="member-info">
+                    <h3 class="neon-text">Shivansh Dixit</h3>
+                    <p class="role">Network Security Specialist</p>
+                    <p class="specialty">Specialization: Cloud Infrastructure</p>
+                    <div class="member-stats">
+                        <span><i class="fas fa-network-wired"></i> AWS Certified</span>
+                        <span><i class="fas fa-certificate"></i> OSCP</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="neon-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="neon-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="neon-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="member-image">
+                    <img src="img/team/alex.jpg" alt="Pankaj Yadav">
+                    <div class="cyber-overlay"></div>
+                </div>
+                <div class="member-info">
+                    <h3 class="neon-text">Pankaj Yadav</h3>
+                    <p class="role">Web Security Expert</p>
+                    <p class="specialty">Specialization: Application Security</p>
+                    <div class="member-stats">
+                        <span><i class="fas fa-code"></i> Full Stack</span>
+                        <span><i class="fas fa-award"></i> Bug Bounty Hunter</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="neon-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="neon-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="neon-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="member-image">
+                    <img src="img/team/priya.jpg" alt="Saurabh Yadav">
+                    <div class="cyber-overlay"></div>
+                </div>
+                <div class="member-info">
+                    <h3 class="neon-text">Saurabh Yadav</h3>
+                    <p class="role">Cryptography Researcher</p>
+                    <p class="specialty">Specialization: Quantum Computing</p>
+                    <div class="member-stats">
+                        <span><i class="fas fa-lock"></i> PhD Cryptography</span>
+                        <span><i class="fas fa-brain"></i> AI Security</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="neon-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="neon-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="neon-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- Footer -->
+        <footer class="cyber-footer">
+            <div class="footer-info">
+                <p>&copy; 2024 GITHACKS. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="../legal/privacy.html" class="footer-link">Privacy Policy</a>
+                    <a href="../legal/terms.html" class="footer-link">Terms of Service</a>
+                    <a href="../blog/index.html" class="footer-link">Blog</a>
+                    <a href="../certification/index.html" class="footer-link">Certifications</a>
+                    <a href="../contact/index.html" class="footer-link">Contact Us</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/router.js"></script>
+    <script src="js/matrix.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+    <!-- Custom JS -->
+    <script type="module" src="js/theme.js"></script>
+    </body>
+</html>

@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cybersecurity Courses</title>
+	
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600&display=swap" rel="stylesheet">
+	
+	<!-- Icons -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+	
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="../css/styles.css">
+	<link rel="stylesheet" href="css/courses.css">
+	<style>
+		:root {
+			--primary-color: #00ff00;
+			--bg-dark: #0a0a0a;
+			--text-color: #e0e0e0;
+			--card-bg: #1a1a1a;
+			--hover-color: #00cc00;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: 'Courier New', monospace;
+		}
+
+		body {
+			background-color: var(--bg-dark);
+			color: var(--text-color);
+			line-height: 1.6;
+		}
+
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 2rem;
+		}
+
+		.header {
+			text-align: center;
+			margin-bottom: 3rem;
+			position: relative;
+		}
+
+		.header h1 {
+			font-size: 3rem;
+			color: var(--primary-color);
+			text-transform: uppercase;
+			letter-spacing: 3px;
+			margin-bottom: 1rem;
+			animation: glitch 3s infinite;
+		}
+
+		.header p {
+			font-size: 1.2rem;
+			opacity: 0.8;
+		}
+
+		.courses-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 2rem;
+		}
+
+		.course-card {
+			background: var(--card-bg);
+			border: 1px solid var(--primary-color);
+			border-radius: 10px;
+			padding: 1.5rem;
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.course-card:hover {
+			transform: translateY(-10px);
+			box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+		}
+
+		.course-card::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(45deg, transparent, rgba(0, 255, 0, 0.1), transparent);
+			transform: translateX(-100%);
+			transition: 0.5s;
+		}
+
+		.course-card:hover::before {
+			transform: translateX(100%);
+		}
+
+		.course-icon {
+			font-size: 2.5rem;
+			color: var(--primary-color);
+			margin-bottom: 1rem;
+		}
+
+		.course-title {
+			font-size: 1.5rem;
+			margin-bottom: 1rem;
+			color: var(--primary-color);
+		}
+
+		.course-description {
+			margin-bottom: 1.5rem;
+			opacity: 0.8;
+		}
+
+		.course-button {
+			display: inline-block;
+			padding: 0.8rem 1.5rem;
+			background-color: transparent;
+			border: 2px solid var(--primary-color);
+			color: var(--primary-color);
+			text-decoration: none;
+			border-radius: 5px;
+			transition: all 0.3s ease;
+		}
+
+		.course-button:hover {
+			background-color: var(--primary-color);
+			color: var(--bg-dark);
+		}
+
+		@keyframes glitch {
+			0% {
+				text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+							-0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+							-0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+			}
+			14% {
+				text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+							-0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+							-0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+			}
+			15% {
+				text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+							0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+							-0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+			}
+			49% {
+				text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+							0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+							-0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+			}
+			50% {
+				text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+							0.05em 0 0 rgba(0, 255, 0, 0.75),
+							0 -0.05em 0 rgba(0, 0, 255, 0.75);
+			}
+			99% {
+				text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+							0.05em 0 0 rgba(0, 255, 0, 0.75),
+							0 -0.05em 0 rgba(0, 0, 255, 0.75);
+			}
+			100% {
+				text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75),
+							-0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
+							-0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
+			}
+		}
+
+		@media (max-width: 768px) {
+			.container {
+				padding: 1rem;
+			}
+			
+			.header h1 {
+				font-size: 2rem;
+			}
+			
+			.courses-grid {
+				grid-template-columns: 1fr;
+			}
+		}
+
+		/* Enhanced Cyber Theme */
+		.cyber-theme {
+			background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
+			position: relative;
+		}
+
+		/* Glowing Lines Effect */
+		.cyber-line {
+			position: fixed;
+			width: 100%;
+			height: 2px;
+			background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+			animation: scanline 6s linear infinite;
+			opacity: 0.5;
+			z-index: 1;
+		}
+
+		/* Enhanced Course Cards */
+		.course-card {
+			backdrop-filter: blur(10px);
+			background: rgba(26, 26, 26, 0.8);
+			border: 1px solid rgba(0, 255, 0, 0.2);
+			box-shadow: 0 0 15px rgba(0, 255, 0, 0.1);
+		}
+
+		.course-card::after {
+			content: '';
+			position: absolute;
+			top: -2px;
+			left: -2px;
+			right: -2px;
+			bottom: -2px;
+			background: linear-gradient(45deg, 
+				transparent 30%,
+				rgba(0, 255, 0, 0.1) 45%,
+				rgba(0, 255, 0, 0.2) 50%,
+				rgba(0, 255, 0, 0.1) 55%,
+				transparent 70%
+			);
+			z-index: -1;
+			border-radius: 12px;
+			animation: borderGlow 3s linear infinite;
+		}
+
+		/* Progress Bar for Courses */
+		.course-progress {
+			width: 100%;
+			height: 4px;
+			background: rgba(0, 255, 0, 0.1);
+			border-radius: 2px;
+			margin: 10px 0;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.progress-bar {
+			height: 100%;
+			background: var(--primary-color);
+			position: absolute;
+			left: 0;
+			top: 0;
+			transition: width 0.3s ease;
+		}
+
+		/* Course Stats */
+		.course-stats {
+			display: flex;
+			justify-content: space-between;
+			margin: 15px 0;
+			font-size: 0.9em;
+			color: rgba(0, 255, 0, 0.7);
+		}
+
+		.stat-item {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+		}
+
+		/* Difficulty Badge */
+		.difficulty-badge {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			padding: 5px 10px;
+			border-radius: 15px;
+			font-size: 0.8em;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+		}
+
+		.difficulty-beginner {
+			background: rgba(0, 255, 0, 0.1);
+			color: #00ff00;
+			border: 1px solid rgba(0, 255, 0, 0.3);
+		}
+
+		.difficulty-advanced {
+			background: rgba(255, 0, 0, 0.1);
+			color: #ff0000;
+			border: 1px solid rgba(255, 0, 0, 0.3);
+		}
+
+		/* Animations */
+		@keyframes borderGlow {
+			0%, 100% {
+				opacity: 0.5;
+			}
+			50% {
+				opacity: 1;
+			}
+		}
+
+		@keyframes scanline {
+			0% {
+				transform: translateY(-100vh);
+			}
+			100% {
+				transform: translateY(100vh);
+			}
+		}
+
+		/* Enhanced Button Styles */
+		.course-button {
+			background: linear-gradient(45deg, 
+				rgba(0, 255, 0, 0.1),
+				rgba(0, 255, 0, 0.2)
+			);
+			border: 1px solid rgba(0, 255, 0, 0.3);
+			position: relative;
+			overflow: hidden;
+		}
+
+		.course-button::before {
+			content: '';
+			position: absolute;
+			top: -2px;
+			left: -2px;
+			right: -2px;
+			bottom: -2px;
+			background: linear-gradient(45deg, 
+				transparent,
+				rgba(0, 255, 0, 0.3),
+				transparent
+			);
+			z-index: -1;
+			animation: buttonGlow 2s linear infinite;
+		}
+
+		@keyframes buttonGlow {
+			0% {
+				transform: translateX(-100%);
+			}
+			100% {
+				transform: translateX(100%);
+			}
+		}
+	</style>
+</head>
+<body class="cyber-theme">
+	<!-- Matrix Canvas Background -->
+	<canvas id="matrixBg" class="matrix-canvas"></canvas>
+	
+	<!-- Floating Navigation -->
+	<nav class="cyber-nav">
+		<div class="nav-container">
+			<!-- Logo/Brand on the left -->
+			<div class="nav-left">
+				<a href="/" class="nav-brand">
+					<div class="logo-glitch" data-text="GITHACKS">GITHACKS</div>
+				</a>
+			</div>
+			
+			<!-- Main navigation links in the middle -->
+			<div class="nav-center">
+				<div class="nav-links">
+					<a href="/" class="nav-link">
+						<i class="fas fa-home"></i>
+						<span>Home</span>
+					</a>
+					<a href="/courses" class="nav-link active">
+						<i class="fas fa-graduation-cap"></i>
+						<span>Courses</span>
+					</a>
+					<a href="/tools" class="nav-link">
+						<i class="fas fa-tools"></i>
+						<span>Tools</span>
+					</a>
+				</div>
+			</div>
+			
+			<!-- Login button on the right -->
+			<div class="nav-right">
+				<a href="/auth" class="auth-btn">
+					<span class="auth-btn-content">
+						<i class="fas fa-user-shield"></i>
+						<span>Login</span>
+					</span>
+					<span class="auth-btn-border"></span>
+					<span class="auth-btn-glow"></span>
+				</a>
+			</div>
+			
+			<!-- Mobile menu toggle -->
+			<button class="nav-toggle" aria-label="Toggle Menu">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+		</div>
+	</nav>
+
+	<!-- Hero Section -->
+	<section class="hero-section">
+		<div class="hero-content">
+			<h1 class="cyber-glitch-title" data-text="Master Cybersecurity">
+				Master Cybersecurity
+			</h1>
+			<div class="cyber-terminal">
+				<span class="terminal-prompt">$</span>
+				<span class="terminal-text" id="terminalText"></span>
+				<span class="cursor">_</span>
+			</div>
+			
+			<!-- Enhanced Search Bar -->
+			<div class="search-container">
+				<div class="cyber-search">
+					<i class="fas fa-search"></i>
+					<input type="text" 
+						   placeholder="Search courses..." 
+						   class="search-input"
+						   aria-label="Search courses">
+					<button class="filter-toggle">
+						<i class="fas fa-sliders-h"></i>
+					</button>
+				</div>
+				
+				<div class="filter-panel">
+					<div class="filter-group">
+						<label>Level</label>
+						<select class="cyber-select">
+							<option value="all">All Levels</option>
+							<option value="beginner">Beginner</option>
+							<option value="intermediate">Intermediate</option>
+							<option value="advanced">Advanced</option>
+						</select>
+					</div>
+					<div class="filter-group">
+						<label>Duration</label>
+						<select class="cyber-select">
+							<option value="all">Any Duration</option>
+							<option value="short">0-5 Hours</option>
+							<option value="medium">5-10 Hours</option>
+							<option value="long">10+ Hours</option>
+						</select>
+					</div>
+					<div class="filter-group">
+						<label>Category</label>
+						<select class="cyber-select">
+							<option value="all">All Categories</option>
+							<option value="web">Web Security</option>
+							<option value="network">Network Security</option>
+							<option value="malware">Malware Analysis</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Course Categories -->
+	<section class="categories-section">
+		<h2 class="section-title cyber-glitch" data-text="Training Modules">
+			Training Modules
+		</h2>
+		
+		<div class="category-grid">
+			<!-- Web Security Category -->
+			<div class="cyber-card category-card" data-aos="fade-up" onclick="window.location.href='/courses/termux'" style="cursor: pointer;">
+				<div class="card-content">
+					<div class="card-icon">
+						<i class="fas fa-shield-alt"></i>
+					</div>
+					<h3>Web Security</h3>
+					<p>Master web application vulnerabilities and penetration testing</p>
+					<div class="card-stats">
+						<span><i class="fas fa-book"></i> 12 Courses</span>
+						<span><i class="fas fa-users"></i> 2.5k Students</span>
+					</div>
+					<a href="/courses/web-security" class="cyber-button">
+						<span></span>
+						<span></span>
+						Explore Path
+						<i class="fas fa-arrow-right"></i>
+					</a>
+				</div>
+				<div class="card-badge">Live</div>
+			</div>
+			
+			<!-- In the category-grid div, add this card -->
+			<div class="cyber-card category-card" data-aos="fade-up" onclick="window.location.href='/courses/termux'" style="cursor: pointer;">
+				<div class="card-content">
+					<div class="card-icon">
+						<i class="fas fa-terminal"></i>
+					</div>
+					<h3>Termux Hacking</h3>
+					<p>Master ethical hacking techniques using Termux on Android</p>
+					<div class="card-stats">
+						<span><i class="fas fa-book"></i> 8 Courses</span>
+						<span><i class="fas fa-users"></i> 1.8k Students</span>
+					</div>
+					<a href="/courses/termux" class="cyber-button">
+						<span></span>
+						<span></span>
+						Explore Path
+						<i class="fas fa-arrow-right"></i>
+					</a>
+				</div>
+				<div class="card-badge new">New</div>
+			</div>
+			
+			<div class="cyber-card category-card" data-aos="fade-up" onclick="window.location.href='/courses/linux-security'" style="cursor: pointer;">
+				<div class="card-content">
+					<div class="card-icon">
+						<i class="fab fa-linux"></i>
+					</div>
+					<h3>Linux Security</h3>
+					<p>Master Linux system security, hardening and advanced penetration testing</p>
+					<div class="card-stats">
+						<span><i class="fas fa-book"></i> 10 Courses</span>
+						<span><i class="fas fa-users"></i> 1.5k Students</span>
+					</div>
+					<a href="/courses/linux-security" class="cyber-button">
+						<span></span>
+						<span></span>
+						Explore Path
+						<i class="fas fa-arrow-right"></i>
+					</a>
+				</div>
+				<div class="card-badge">Hot</div>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Featured Courses -->
+	<section class="featured-section">
+		<h2 class="section-title cyber-glitch" data-text="Featured Courses">
+			Featured Courses
+		</h2>
+		
+		<div class="courses-grid">
+			<div class="course-card">
+				<span class="difficulty-badge difficulty-beginner">Beginner</span>
+				<i class="fas fa-shield-alt course-icon"></i>
+				<h2 class="course-title">Ethical Hacking Fundamentals</h2>
+				<p class="course-description">Learn the basics of ethical hacking and penetration testing. Understand how to identify and exploit common vulnerabilities.</p>
+				
+				<div class="course-stats">
+					<span class="stat-item">
+						<i class="fas fa-clock"></i>
+						8 Hours
+					</span>
+					<span class="stat-item">
+						<i class="fas fa-users"></i>
+						2.5k Students
+					</span>
+				</div>
+				
+				<div class="course-progress">
+					<div class="progress-bar" style="width: 75%"></div>
+				</div>
+				
+				<a href="#" class="course-button">
+					Start Learning
+					<i class="fas fa-arrow-right"></i>
+				</a>
+			</div>
+
+			<div class="course-card">
+				<i class="fas fa-bug course-icon"></i>
+				<h2 class="course-title">Malware Analysis</h2>
+				<p class="course-description">Deep dive into malware analysis techniques. Learn how to detect, analyze, and prevent malicious software.</p>
+				<a href="#" class="course-button">Learn More</a>
+			</div>
+
+			<div class="course-card">
+				<i class="fas fa-lock course-icon"></i>
+				<h2 class="course-title">Network Security</h2>
+				<p class="course-description">Master network security concepts, protocols, and best practices for protecting organizational infrastructure.</p>
+				<a href="#" class="course-button">Learn More</a>
+			</div>
+
+			<div class="course-card">
+				<i class="fas fa-code course-icon"></i>
+				<h2 class="course-title">Secure Coding Practices</h2>
+				<p class="course-description">Learn to write secure code and implement security best practices in software development.</p>
+				<a href="#" class="course-button">Learn More</a>
+			</div>
+
+			<div class="course-card">
+				<i class="fas fa-cloud course-icon"></i>
+				<h2 class="course-title">Cloud Security</h2>
+				<p class="course-description">Understand cloud security architecture and learn to secure cloud-based applications and infrastructure.</p>
+				<a href="#" class="course-button">Learn More</a>
+			</div>
+
+			<div class="course-card">
+				<i class="fas fa-user-secret course-icon"></i>
+				<h2 class="course-title">Digital Forensics</h2>
+				<p class="course-description">Learn techniques for investigating cyber incidents and collecting digital evidence.</p>
+				<a href="#" class="course-button">Learn More</a>
+			</div>
+
+			<!-- Add to premium course cards -->
+			<a href="#" class="premium-button" onclick="handlePurchase(event, {
+				id: 'course-1',
+				title: 'Advanced Penetration Testing',
+				price: PAYMENT_CONFIG.COURSES.PRO.price,
+				type: 'COURSE'
+			})">
+				Enroll Now <i class="fas fa-crown"></i>
+			</a>
+		</div>
+	</section>
+
+	<!-- Cyber Footer -->
+	<footer class="cyber-footer">
+		<div class="footer-grid">
+			<div class="footer-brand">
+				<h2 class="cyber-glitch" data-text="GITHACKS">GITHACKS</h2>
+				<p>Empowering the next generation of cyber security experts</p>
+				<div class="social-links">
+					<a href="#" class="social-link">
+						<i class="fab fa-github"></i>
+					</a>
+					<a href="#" class="social-link">
+						<i class="fab fa-discord"></i>
+					</a>
+					<a href="#" class="social-link">
+						<i class="fab fa-twitter"></i>
+					</a>
+				</div>
+			</div>
+			
+			<div class="footer-links">
+				<h3>Quick Links</h3>
+				<ul>
+					<li><a href="/courses">All Courses</a></li>
+					<li><a href="../certification/index.html">Certification</a></li>
+					<li><a href="/community/community.html">Community</a></li>
+					<li><a href="/blog">Blog</a></li>
+				</ul>
+			</div>
+			
+			<div class="footer-contact">
+				<h3>Contact</h3>
+				<ul>
+					<li><i class="fas fa-envelope"></i> support@githacks.com</li>
+					<li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="footer-bottom">
+			<p>&copy; 2024 GITHACKS. All rights reserved.</p>
+			<div class="footer-legal">
+				<a href="../legal/privacy.html">Privacy Policy</a>
+				<a href="../legal/terms.html">Terms of Service</a>
+				<a href="../security/index.html">Security</a>
+				<a href="../cookies/index.html">Cookie Policy</a>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Scripts -->
+	<script src="../js/matrix.js"></script>
+	<script>
+		// Add animation to cards when they come into view
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.style.opacity = 1;
+					entry.target.style.transform = 'translateY(0)';
+				}
+			});
+		});
+
+		document.querySelectorAll('.course-card').forEach((card) => {
+			card.style.opacity = 0;
+			card.style.transform = 'translateY(50px)';
+			card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+			observer.observe(card);
+		});
+
+		// Add hover effect to course cards
+		document.querySelectorAll('.course-card').forEach(card => {
+			card.addEventListener('mousemove', (e) => {
+				const rect = card.getBoundingClientRect();
+				const x = e.clientX - rect.left;
+				const y = e.clientY - rect.top;
+				
+				card.style.setProperty('--mouse-x', `${x}px`);
+				card.style.setProperty('--mouse-y', `${y}px`);
+			});
+		});
+
+		// Animate progress bars on scroll
+		const progressObserver = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					const bar = entry.target.querySelector('.progress-bar');
+					const width = bar.style.width;
+					bar.style.width = '0';
+					setTimeout(() => {
+						bar.style.width = width;
+					}, 100);
+				}
+			});
+		});
+
+		document.querySelectorAll('.course-progress').forEach(progress => {
+			progressObserver.observe(progress);
+		});
+	</script>
+
+	<!-- Add these elements right after the <body> tag -->
+	<div class="cyber-line" style="top: 25%"></div>
+	<div class="cyber-line" style="top: 50%"></div>
+	<div class="cyber-line" style="top: 75%"></div>
+</body>
+</html>

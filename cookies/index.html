@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Policy - GITHACKS</title>
+    <meta name="description" content="Manage your cookie preferences and learn about how we use cookies to enhance your experience on GITHACKS.">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="css/cookies.css">
+</head>
+<body class="cyber-theme">
+    <!-- Matrix Background -->
+    <canvas id="matrixBg" class="matrix-canvas"></canvas>
+
+    <!-- Cookie Policy Header -->
+    <header class="cookie-header">
+        <div class="container">
+            <h1 class="cyber-glitch" data-text="Cookie Policy">Cookie Policy</h1>
+            <p class="header-desc">Control your privacy settings and manage how we use cookies</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="cookie-main">
+        <div class="container">
+            <!-- Cookie Categories -->
+            <section class="cookie-categories">
+                <div class="categories-grid">
+                    <!-- Essential Cookies -->
+                    <div class="cookie-card glass-card" data-category="essential">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h2>Essential Cookies</h2>
+                            <div class="toggle-wrapper">
+                                <input type="checkbox" id="essentialToggle" checked disabled>
+                                <label for="essentialToggle" class="cyber-toggle">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <p>These cookies are necessary for the website to function and cannot be switched off.</p>
+                            <ul class="cookie-list">
+                                <li>Authentication</li>
+                                <li>Security</li>
+                                <li>Basic functionality</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <button class="cyber-button info" data-modal="essential-info">
+                                <i class="fas fa-info-circle"></i> Learn More
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Analytics Cookies -->
+                    <div class="cookie-card glass-card" data-category="analytics">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h2>Analytics Cookies</h2>
+                            <div class="toggle-wrapper">
+                                <input type="checkbox" id="analyticsToggle">
+                                <label for="analyticsToggle" class="cyber-toggle">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <p>Help us understand how you use our website and improve our services.</p>
+                            <ul class="cookie-list">
+                                <li>Usage statistics</li>
+                                <li>Performance tracking</li>
+                                <li>User behavior analysis</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <button class="cyber-button info" data-modal="analytics-info">
+                                <i class="fas fa-info-circle"></i> Learn More
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Preference Cookies -->
+                    <div class="cookie-card glass-card" data-category="preferences">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-sliders-h"></i>
+                            </div>
+                            <h2>Preference Cookies</h2>
+                            <div class="toggle-wrapper">
+                                <input type="checkbox" id="preferencesToggle">
+                                <label for="preferencesToggle" class="cyber-toggle">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <p>Allow the website to remember your preferences and customize your experience.</p>
+                            <ul class="cookie-list">
+                                <li>Theme preferences</li>
+                                <li>Language settings</li>
+                                <li>Personalization</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <button class="cyber-button info" data-modal="preferences-info">
+                                <i class="fas fa-info-circle"></i> Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cookie Settings -->
+            <section class="cookie-settings glass-card">
+                <h2>Advanced Settings</h2>
+                <div class="settings-grid">
+                    <div class="setting-item">
+                        <label for="retentionPeriod">Cookie Retention Period</label>
+                        <select id="retentionPeriod" class="cyber-select">
+                            <option value="session">Session Only</option>
+                            <option value="30">30 Days</option>
+                            <option value="90">90 Days</option>
+                            <option value="365">1 Year</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label for="cookiePolicy">Cookie Policy Version</label>
+                        <select id="cookiePolicy" class="cyber-select">
+                            <option value="strict">Strict</option>
+                            <option value="balanced">Balanced</option>
+                            <option value="flexible">Flexible</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Save Preferences -->
+            <section class="save-preferences">
+                <button id="savePreferences" class="cyber-button primary large">
+                    <i class="fas fa-save"></i> Save Preferences
+                </button>
+                <button id="resetPreferences" class="cyber-button secondary">
+                    <i class="fas fa-undo"></i> Reset to Default
+                </button>
+            </section>
+        </div>
+    </main>
+
+    <!-- Cookie Info Modals -->
+    <div id="cookieModal" class="modal">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+                <button class="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modalContent">
+                <!-- Content will be dynamically loaded -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="../js/matrix.js"></script>
+    <script src="js/cookies.js"></script>
+</body>
+</html>

@@ -1,0 +1,329 @@
+/* Course Detail Styles */
+.course-detail-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Breadcrumb Navigation */
+.breadcrumb {
+    margin-bottom: 30px;
+}
+
+.breadcrumb a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-family: 'Share Tech Mono', monospace;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: var(--primary-color);
+    background: rgba(0, 255, 136, 0.1);
+}
+
+/* Course Header */
+.course-header {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(0, 255, 136, 0.1);
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+}
+
+.course-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.course-info {
+    flex: 1;
+}
+
+.course-info h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5em;
+    margin: 15px 0;
+    color: var(--text-light);
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+/* Circular Progress */
+.circular-progress {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.circular-progress svg {
+    width: 120px;
+    height: 120px;
+    transform: rotate(-90deg);
+}
+
+.circular-progress circle {
+    fill: none;
+    stroke-width: 8;
+    stroke-linecap: round;
+}
+
+.progress-bg {
+    stroke: rgba(0, 255, 136, 0.1);
+}
+
+.progress-bar {
+    stroke: var(--primary-color);
+    stroke-dasharray: 339.292;
+    stroke-dashoffset: 84.823; /* (339.292 * (100 - percentage)) / 100 */
+    filter: drop-shadow(0 0 8px rgba(0, 255, 136, 0.5));
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.5em;
+    color: var(--primary-color);
+}
+
+/* Course Content Grid */
+.course-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 30px;
+}
+
+/* Main Content */
+.main-content section {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(0, 255, 136, 0.1);
+    margin-bottom: 30px;
+}
+
+.main-content h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* Key Topics */
+.key-topics ul {
+    list-style: none;
+    padding: 0;
+}
+
+.key-topics li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 0;
+    color: var(--text-light);
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.key-topics li i {
+    color: var(--primary-color);
+}
+
+/* Course Modules */
+.module-item {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0, 255, 136, 0.1);
+    transition: all 0.3s ease;
+}
+
+.module-item:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.1);
+}
+
+.module-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+.module-number {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.5em;
+    color: var(--primary-color);
+    opacity: 0.7;
+}
+
+.module-status i {
+    font-size: 1.2em;
+}
+
+.module-item.completed .module-status i {
+    color: var(--primary-color);
+}
+
+.module-item.current .module-status i {
+    color: #ffc107;
+    animation: pulse 2s infinite;
+}
+
+.module-content {
+    padding: 0 20px 20px;
+}
+
+.module-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.module-content li {
+    padding: 10px 0;
+    color: var(--text-dim);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.module-content li::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--text-dim);
+}
+
+.module-content li.completed {
+    color: var(--primary-color);
+}
+
+.module-content li.completed::before {
+    background: var(--primary-color);
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+.module-content li.in-progress {
+    color: #ffc107;
+}
+
+.module-content li.in-progress::before {
+    background: #ffc107;
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+}
+
+/* Sidebar */
+.course-sidebar {
+    position: sticky;
+    top: 30px;
+}
+
+.sidebar-card {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid rgba(0, 255, 136, 0.1);
+    margin-bottom: 20px;
+}
+
+.sidebar-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.progress-stats {
+    display: grid;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+}
+
+.stat span {
+    color: var(--text-dim);
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.stat strong {
+    color: var(--text-light);
+    font-family: 'Orbitron', sans-serif;
+}
+
+.resources-list {
+    list-style: none;
+    padding: 0;
+}
+
+.resources-list li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.resources-list li:hover {
+    color: var(--primary-color);
+    transform: translateX(10px);
+}
+
+.resources-list li i {
+    color: var(--primary-color);
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .course-content-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .course-sidebar {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .course-detail-container {
+        padding: 15px;
+    }
+
+    .course-intro {
+        flex-direction: column;
+    }
+
+    .course-header {
+        padding: 20px;
+    }
+
+    .course-info h1 {
+        font-size: 1.8em;
+    }
+} 

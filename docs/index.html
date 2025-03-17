@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GITHACKS - Documentation</title>
+    <meta name="description" content="Comprehensive documentation and tutorials for GITHACKS tools and techniques.">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/shared-pages.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.css">
+    
+    <style>
+        /* Documentation Layout */
+        .docs-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            max-width: 1440px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Sidebar Styles */
+        .docs-sidebar {
+            position: sticky;
+            top: 2rem;
+            height: calc(100vh - 4rem);
+            overflow-y: auto;
+            padding-right: 1rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--neon-cyan) var(--card-bg);
+        }
+
+        .docs-sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .docs-sidebar::-webkit-scrollbar-track {
+            background: var(--card-bg);
+        }
+
+        .docs-sidebar::-webkit-scrollbar-thumb {
+            background-color: var(--neon-cyan);
+            border-radius: 3px;
+        }
+
+        .sidebar-section {
+            margin-bottom: 1rem;
+        }
+
+        .sidebar-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--neon-cyan);
+        }
+
+        .nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--neon-cyan);
+            transform: translateX(5px);
+        }
+
+        .nav-link.active {
+            background: var(--gradient-cyber);
+            color: var(--dark-bg);
+        }
+
+        .nav-icon {
+            margin-right: 0.8rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Content Styles */
+        .docs-content {
+            min-height: calc(100vh - 4rem);
+        }
+
+        .docs-section {
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .docs-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--neon-cyan);
+        }
+
+        .docs-section h3 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: var(--text-primary);
+        }
+
+        /* Code Block Styles */
+        .code-block {
+            position: relative;
+            margin: 2rem 0;
+            background: var(--dark-bg);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid var(--border-color);
+            border-radius: 8px 8px 0 0;
+        }
+
+        .code-language {
+            color: var(--neon-cyan);
+            font-size: 0.9rem;
+        }
+
+        .copy-button {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .copy-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--neon-cyan);
+        }
+
+        /* Info Boxes */
+        .info-box {
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            border-left: 4px solid;
+        }
+
+        .info-box.note {
+            background: rgba(0, 255, 242, 0.1);
+            border-color: var(--neon-cyan);
+        }
+
+        .info-box.warning {
+            background: rgba(255, 193, 7, 0.1);
+            border-color: #ffc107;
+        }
+
+        .info-box.danger {
+            background: rgba(255, 71, 87, 0.1);
+            border-color: #ff4757;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav-toggle {
+            display: none;
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--gradient-cyber);
+            color: var(--dark-bg);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: var(--neon-glow);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .docs-container {
+                grid-template-columns: 250px 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .docs-container {
+                grid-template-columns: 1fr;
+            }
+
+            .docs-sidebar {
+                position: fixed;
+                left: -300px;
+                top: 0;
+                bottom: 0;
+                width: 300px;
+                background: var(--card-bg);
+                z-index: 999;
+                padding: 2rem;
+                transition: transform 0.3s ease;
+                backdrop-filter: blur(10px);
+            }
+
+            .docs-sidebar.active {
+                transform: translateX(300px);
+            }
+
+            .mobile-nav-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <h1 class="page-title">Documentation</h1>
+        <p class="page-description">Learn how to use GITHACKS tools and techniques effectively.</p>
+    </header>
+
+    <main class="main-content">
+        <div class="docs-container">
+            <!-- Sidebar Navigation -->
+            <aside class="docs-sidebar">
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Getting Started</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#introduction" class="nav-link active">
+                                <i class="fas fa-book nav-icon"></i>
+                                Introduction
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#installation" class="nav-link">
+                                <i class="fas fa-download nav-icon"></i>
+                                Installation
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#quickstart" class="nav-link">
+                                <i class="fas fa-rocket nav-icon"></i>
+                                Quick Start Guide
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Core Concepts</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#architecture" class="nav-link">
+                                <i class="fas fa-layer-group nav-icon"></i>
+                                Architecture
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#security" class="nav-link">
+                                <i class="fas fa-shield-alt nav-icon"></i>
+                                Security Model
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#authentication" class="nav-link">
+                                <i class="fas fa-key nav-icon"></i>
+                                Authentication
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Advanced Topics</h3>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#api" class="nav-link">
+                                <i class="fas fa-code nav-icon"></i>
+                                API Reference
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#plugins" class="nav-link">
+                                <i class="fas fa-puzzle-piece nav-icon"></i>
+                                Plugins
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#deployment" class="nav-link">
+                                <i class="fas fa-server nav-icon"></i>
+                                Deployment
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <div class="docs-content">
+                <section id="introduction" class="docs-section">
+                    <h2>Introduction</h2>
+                    <p>Welcome to the GITHACKS documentation. This guide will help you understand and utilize our tools effectively for ethical hacking and cybersecurity research.</p>
+                    
+                    <div class="info-box note">
+                        <strong>Note:</strong> Always ensure you have proper authorization before testing security measures on any system.
+                    </div>
+                </section>
+
+                <section id="installation" class="docs-section">
+                    <h2>Installation</h2>
+                    <p>Follow these steps to install GITHACKS on your system:</p>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-language">bash</span>
+                            <button class="copy-button">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                        <pre class="line-numbers"><code class="language-bash"># Clone the repository
+git clone https://github.com/yourusername/githacks.git
+
+# Navigate to the project directory
+cd githacks
+
+# Install dependencies
+npm install
+
+# Start the application
+npm start</code></pre>
+                    </div>
+                </section>
+
+                <section id="quickstart" class="docs-section">
+                    <h2>Quick Start Guide</h2>
+                    <h3>Basic Usage</h3>
+                    <p>Here's a simple example of using GITHACKS for basic security testing:</p>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-language">python</span>
+                            <button class="copy-button">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                        <pre class="line-numbers"><code class="language-python">from githacks import SecurityTester
+
+# Initialize the security tester
+tester = SecurityTester()
+
+# Configure target (always use with permission)
+target = {
+    'url': 'https://example.com',
+    'port': 443,
+    'protocol': 'https'
+}
+
+# Run basic security scan
+results = tester.run_basic_scan(target)
+
+# Print results
+print(results.summary())</code></pre>
+                    </div>
+
+                    <div class="info-box warning">
+                        <strong>Warning:</strong> Always obtain proper authorization before performing security tests.
+                    </div>
+                </section>
+
+                <!-- Add more sections as needed -->
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Toggle -->
+        <button class="mobile-nav-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-bash.min.js"></script>
+    
+    <script>
+        // Mobile Navigation Toggle
+        const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+        const sidebar = document.querySelector('.docs-sidebar');
+        
+        mobileNavToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            mobileNavToggle.querySelector('i').classList.toggle('fa-bars');
+            mobileNavToggle.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Active Link Tracking
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.docs-section');
+
+        function setActiveLink() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.pageYOffset >= sectionTop) {
+                    current = '#' + section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', setActiveLink);
+
+        // Smooth Scroll
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+                
+                // Close mobile menu if open
+                if (window.innerWidth <= 768) {
+                    sidebar.classList.remove('active');
+                    mobileNavToggle.querySelector('i').classList.add('fa-bars');
+                    mobileNavToggle.querySelector('i').classList.remove('fa-times');
+                }
+            });
+        });
+
+        // Copy Code Functionality
+        document.querySelectorAll('.copy-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const codeBlock = button.closest('.code-block');
+                const code = codeBlock.querySelector('code').textContent;
+                
+                navigator.clipboard.writeText(code).then(() => {
+                    const icon = button.querySelector('i');
+                    icon.classList.remove('fa-copy');
+                    icon.classList.add('fa-check');
+                    
+                    setTimeout(() => {
+                        icon.classList.remove('fa-check');
+                        icon.classList.add('fa-copy');
+                    }, 2000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+/* Tools Section Styles */
+.tools-search {
+    position: relative;
+    width: 300px;
+}
+
+.tools-search input {
+    width: 100%;
+    padding: 10px 15px;
+    padding-right: 40px;
+    background: rgba(0,0,0,0.2);
+    border: 1px solid rgba(0,255,136,0.2);
+    border-radius: 8px;
+    color: var(--text-light);
+}
+
+.tools-search i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-dim);
+}
+
+.tools-categories {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.tools-categories button {
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid rgba(0,255,136,0.2);
+    color: var(--text-dim);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tools-categories button.active,
+.tools-categories button:hover {
+    background: var(--primary-color);
+    color: var(--bg-darker);
+    border-color: var(--primary-color);
+    box-shadow: var(--neon-shadow);
+}
+
+.tool-card {
+    background: var(--bg-darker);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    border: 1px solid rgba(0,255,136,0.1);
+    transition: all 0.3s ease;
+}
+
+.tool-status {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    margin: 15px 0;
+}
+
+.tool-status.online {
+    background: rgba(0,255,136,0.1);
+    color: var(--primary-color);
+}
+
+.launch-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary-color);
+    border: none;
+    color: var(--bg-darker);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.launch-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--neon-shadow);
+} 

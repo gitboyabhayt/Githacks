@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GITHACKS - Cybersecurity Blog</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/glitch.css">
+    <link rel="stylesheet" href="css/blog.css">
+</head>
+<body>
+    <!-- Matrix Background -->
+    <canvas id="matrixBg"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1 class="cyber-glitch logo-text" data-text="GITHACKS">GITHACKS</h1>
+            </div>
+            <div class="nav-links-container">
+                <ul class="nav-links">
+                    <li class="nav-item"><a href="../index.html" class="cyber-link">Home</a></li>
+                    <li class="nav-item"><a href="../certification/index.html" class="cyber-link">Certifications</a></li>
+                    <li class="nav-item"><a href="index.html" class="cyber-link active">Blog</a></li>
+                </ul>
+            </div>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle">
+                    <div class="toggle-icons">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <div class="toggle-track">
+                        <div class="toggle-circle"></div>
+                    </div>
+                    <div class="toggle-glow"></div>
+                </button>
+                <a href="../auth/index.html" class="auth-btn">
+                    <span class="auth-btn-content">
+                        <i class="fas fa-user-shield"></i>
+                        <span>Login</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2 class="cyber-glitch" data-text="Cybersecurity Insights">Cybersecurity Insights</h2>
+            <p>Stay updated with the latest trends, tips, and news in the cybersecurity world. Check out our <a href="../certification/index.html" class="cyber-link">certification programs</a> to advance your career.</p>
+            <a href="#blog-posts" class="cyber-button primary">Read Our Articles</a>
+        </div>
+        <div class="matrix-overlay"></div>
+        <div class="cyber-grid"></div>
+    </section>
+
+    <!-- Blog Posts Section -->
+    <section id="blog-posts" class="blog-posts">
+        <div class="card-grid">
+            <div class="cyber-card featured">
+                <div class="card-header">
+                    <i class="fas fa-shield-virus card-icon"></i>
+                    <h3 class="card-title">Understanding Cyber Threats</h3>
+                </div>
+                <div class="card-content">
+                    <p>Learn about the various types of cyber threats and how to protect yourself in today's digital landscape. Discover the latest attack vectors and defense strategies. Get <a href="../certification/index.html" class="cyber-link">certified</a> in ethical hacking and cybersecurity.</p>
+                </div>
+                <div class="card-footer">
+                    <span><i class="fas fa-clock"></i> 5 min read</span>
+                    <a href="#" class="cyber-button small">Read More</a>
+                </div>
+            </div>
+            <div class="cyber-card">
+                <div class="card-header">
+                    <i class="fas fa-user-shield card-icon"></i>
+                    <h3 class="card-title">Best Practices for Cyber Hygiene</h3>
+                </div>
+                <div class="card-content">
+                    <p>Discover essential practices to maintain your cybersecurity hygiene and protect your digital assets from emerging threats.</p>
+                </div>
+                <div class="card-footer">
+                    <span><i class="fas fa-clock"></i> 4 min read</span>
+                    <a href="#" class="cyber-button small">Read More</a>
+                </div>
+            </div>
+            <div class="cyber-card">
+                <div class="card-header">
+                    <i class="fas fa-robot card-icon"></i>
+                    <h3 class="card-title">Future of Cybersecurity</h3>
+                </div>
+                <div class="card-content">
+                    <p>Explore the future trends in cybersecurity and what to expect in the coming years. From AI-powered threats to quantum encryption.</p>
+                </div>
+                <div class="card-footer">
+                    <span><i class="fas fa-clock"></i> 6 min read</span>
+                    <a href="#" class="cyber-button small">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="cyber-footer">
+        <div class="footer-info">
+            <p>&copy; 2024 GITHACKS. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="../legal/privacy.html">Privacy Policy</a>
+                <a href="../legal/terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/theme.js"></script>
+    <script src="js/blog.js"></script>
+</body>
+</html>

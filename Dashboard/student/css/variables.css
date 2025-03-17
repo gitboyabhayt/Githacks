@@ -1,0 +1,40 @@
+:root {
+    --primary-color: #00ff88;
+    --secondary-color: #0066ff;
+    --bg-dark: #0a0a0a;
+    --bg-darker: #050505;
+    --text-light: #ffffff;
+    --text-dim: #888888;
+    --neon-glow: 0 0 10px var(--primary-color);
+    --neon-shadow: 0 0 10px rgba(0,255,136,0.5),
+                   0 0 20px rgba(0,255,136,0.3),
+                   0 0 30px rgba(0,255,136,0.1);
+    --neon-text-shadow: 0 0 5px rgba(0,255,136,0.5),
+                       0 0 10px rgba(0,255,136,0.3),
+                       0 0 15px rgba(0,255,136,0.1);
+    --sidebar-width: 250px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+html, body {
+    overflow-x: hidden;
+    position: relative;
+    height: 100%;
+}
+
+body {
+    background: var(--bg-dark);
+    color: var(--text-light);
+    min-height: 100vh;
+}
+
+/* Add this to prevent content shift */
+html {
+    overflow-x: hidden;
+} 

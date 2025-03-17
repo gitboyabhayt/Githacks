@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GITHACKS - Discord Community</title>
+    <meta name="description" content="Join the GITHACKS Discord community to chat with fellow hackers, get help, and stay updated with the latest in cybersecurity.">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="preload" href="../css/community.css" as="style">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/community.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        .discord-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .discord-hero {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .discord-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .discord-hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .discord-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+        }
+
+        .discord-widget {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .discord-cta {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .join-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #5865F2;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .join-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(88, 101, 242, 0.4);
+        }
+
+        .guidelines {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .guidelines h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .guidelines ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .guidelines li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .guidelines li i {
+            color: var(--accent-primary);
+            margin-top: 0.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .discord-hero h1 {
+                font-size: 2rem;
+            }
+
+            .discord-container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-brand">
+            <a href="../index.html" aria-label="GITHACKS Home">
+                <span class="neon-text">GITHACKS</span>
+            </a>
+        </div>
+        <div class="nav-links" role="menubar">
+            <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+            <a href="../courses.html" class="nav-link" role="menuitem">Courses</a>
+            <a href="../dashboard/index.html" class="nav-link" role="menuitem">Dashboard</a>
+            <a href="../books/index.html" class="nav-link" role="menuitem">Books</a>
+            <a href="../tools/index.html" class="nav-link" role="menuitem">Tools</a>
+            <a href="../team.html" class="nav-link" role="menuitem">Our Team</a>
+            <a href="index.html" class="nav-link active" role="menuitem" aria-current="page">Community</a>
+        </div>
+        <div class="auth-links">
+            <a href="../auth/login.html" class="btn btn-secondary" role="button">Login</a>
+            <a href="../auth/signup.html" class="btn btn-primary" role="button">Sign Up</a>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" aria-hidden="true">
+        <nav class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+            <a href="../index.html">Home</a>
+            <a href="../courses.html">Courses</a>
+            <a href="../dashboard/index.html">Dashboard</a>
+            <a href="../books/index.html">Books</a>
+            <a href="../tools/index.html">Tools</a>
+            <a href="../team.html">Our Team</a>
+            <a href="index.html" class="active">Community</a>
+            <div class="mobile-auth">
+                <a href="../auth/login.html" class="btn btn-secondary">Login</a>
+                <a href="../auth/signup.html" class="btn btn-primary">Sign Up</a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content" class="discord-container">
+        <section class="discord-hero">
+            <h1>Join Our Discord Community</h1>
+            <p>Connect with fellow hackers, get help with challenges, and stay updated with the latest in cybersecurity.</p>
+        </section>
+
+        <section class="discord-features">
+            <div class="feature-card">
+                <i class="fas fa-comments"></i>
+                <h3>Active Discussions</h3>
+                <p>Engage in real-time discussions about cybersecurity, ethical hacking, and more.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-hands-helping"></i>
+                <h3>Community Support</h3>
+                <p>Get help from experienced members and contribute to helping others.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-bell"></i>
+                <h3>Stay Updated</h3>
+                <p>Receive notifications about new courses, events, and community updates.</p>
+            </div>
+        </section>
+
+        <section class="discord-widget">
+            <iframe src="https://discord.com/widget?id=YOUR_SERVER_ID&theme=dark" 
+                    width="100%" 
+                    height="500" 
+                    allowtransparency="true" 
+                    frameborder="0" 
+                    sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+                    title="GITHACKS Discord Server Widget">
+            </iframe>
+        </section>
+
+        <section class="discord-cta">
+            <a href="https://discord.gg/YOUR_INVITE_LINK" class="join-button" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-discord"></i>
+                Join Our Server
+            </a>
+        </section>
+
+        <section class="guidelines">
+            <h2>Community Guidelines</h2>
+            <ul>
+                <li>
+                    <i class="fas fa-check"></i>
+                    <div>
+                        <strong>Be Respectful</strong>
+                        <p>Treat all members with respect. No harassment, hate speech, or inappropriate behavior.</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-check"></i>
+                    <div>
+                        <strong>Stay On Topic</strong>
+                        <p>Keep discussions relevant to cybersecurity, ethical hacking, and related topics.</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-check"></i>
+                    <div>
+                        <strong>No Illegal Activities</strong>
+                        <p>Discussions about illegal hacking or malicious activities are strictly prohibited.</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-check"></i>
+                    <div>
+                        <strong>Help Others</strong>
+                        <p>Share your knowledge and help fellow members grow in their cybersecurity journey.</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../js/main.js" defer></script>
+    <script src="../js/community.js" defer></script>
+</body>
+</html>

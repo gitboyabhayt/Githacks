@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GITHACKS - Course Detail</title>
+    
+    <!-- Fonts & Icons (same as main) -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/courses.css">
+    <link rel="stylesheet" href="../css/course-detail.css">
+</head>
+<body>
+    <!-- Matrix Background -->
+    <canvas id="matrixBg"></canvas>
+
+    <!-- Course Detail Container -->
+    <div class="course-detail-container">
+        <!-- Course Header -->
+        <header class="course-header">
+            <nav class="breadcrumb">
+                <a href="index.html"><i class="fas fa-chevron-left"></i> Back to Courses</a>
+            </nav>
+            <div class="course-intro">
+                <div class="course-info">
+                    <span class="course-level advanced">Advanced</span>
+                    <h1>Advanced Ethical Hacking</h1>
+                    <div class="course-meta">
+                        <span><i class="fas fa-clock"></i> 40 Hours</span>
+                        <span><i class="fas fa-book-open"></i> 12 Modules</span>
+                        <span><i class="fas fa-trophy"></i> 5 Certificates</span>
+                    </div>
+                </div>
+                <div class="course-progress-overview">
+                    <div class="circular-progress">
+                        <svg>
+                            <circle class="progress-bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress-bar" cx="60" cy="60" r="54"></circle>
+                        </svg>
+                        <div class="progress-text">75%</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Course Content -->
+        <div class="course-content-grid">
+            <!-- Main Content -->
+            <div class="main-content">
+                <section class="course-description">
+                    <h2>Course Overview</h2>
+                    <p>Master advanced penetration testing and security assessment techniques through hands-on labs and real-world scenarios.</p>
+                    
+                    <div class="key-topics">
+                        <h3>What you'll learn</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Advanced Network Penetration Testing</li>
+                            <li><i class="fas fa-check"></i> Web Application Security</li>
+                            <li><i class="fas fa-check"></i> Wireless Network Hacking</li>
+                            <li><i class="fas fa-check"></i> Mobile Security Testing</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="course-modules">
+                    <h2>Course Modules</h2>
+                    <div class="modules-list">
+                        <!-- Module Item -->
+                        <div class="module-item completed">
+                            <div class="module-header">
+                                <span class="module-number">01</span>
+                                <h3>Introduction to Advanced Penetration Testing</h3>
+                                <span class="module-status">
+                                    <i class="fas fa-check-circle"></i>
+                                </span>
+                            </div>
+                            <div class="module-content">
+                                <ul>
+                                    <li class="completed">Setting Up Your Lab Environment</li>
+                                    <li class="completed">Understanding Attack Methodologies</li>
+                                    <li class="completed">Advanced Scanning Techniques</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Current Module -->
+                        <div class="module-item current">
+                            <div class="module-header">
+                                <span class="module-number">02</span>
+                                <h3>Network Penetration Testing</h3>
+                                <span class="module-status">
+                                    <i class="fas fa-play-circle"></i>
+                                </span>
+                            </div>
+                            <div class="module-content">
+                                <ul>
+                                    <li class="completed">Advanced Port Scanning</li>
+                                    <li class="in-progress">Exploitation Techniques</li>
+                                    <li>Post-Exploitation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="course-sidebar">
+                <div class="sidebar-card">
+                    <h3>Your Progress</h3>
+                    <div class="progress-stats">
+                        <div class="stat">
+                            <span>Completed Modules</span>
+                            <strong>6 of 12</strong>
+                        </div>
+                        <div class="stat">
+                            <span>Time Spent</span>
+                            <strong>28h 45m</strong>
+                        </div>
+                    </div>
+                    <button class="continue-btn">
+                        <i class="fas fa-play"></i>
+                        Continue Learning
+                    </button>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Course Resources</h3>
+                    <ul class="resources-list">
+                        <li>
+                            <i class="fas fa-file-pdf"></i>
+                            Course Materials
+                        </li>
+                        <li>
+                            <i class="fas fa-terminal"></i>
+                            Virtual Lab Access
+                        </li>
+                        <li>
+                            <i class="fas fa-comments"></i>
+                            Discussion Forum
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <script src="../js/matrix.js"></script>
+    <script src="../js/course-detail.js"></script>
+</body>
+</html> 

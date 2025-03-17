@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Books | GITHACKS</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="css/books.css">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <link rel="stylesheet" href="../css/payment.css">
+</head>
+<body class="cyber-theme">
+    <!-- Matrix Canvas Background -->
+    <canvas id="matrixBg" class="matrix-canvas"></canvas>
+
+    <!-- Hero Section -->
+    <section class="books-hero">
+        <div class="hero-content">
+            <h1 class="glitch-text">Cybersecurity Books</h1>
+            <p class="cyber-subtitle">Master the art of cybersecurity with our curated collection</p>
+            <div class="search-container">
+                <input type="text" placeholder="Search books..." class="cyber-search">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+        <div class="cyber-grid-overlay"></div>
+    </section>
+
+    <!-- Featured Books -->
+    <section>
+        <h2 class="section-title">Featured Books</h2>
+        <div class="books-grid">
+            <!-- Book 1 -->
+            <div class="book-card" data-aos="fade-up">
+                <img src="../assets/images/books/practical-malware.jpg" alt="Practical Malware Analysis" class="book-cover">
+                <h3 class="book-title">Practical Malware Analysis</h3>
+                <p class="book-author">By Michael Sikorski & Andrew Honig</p>
+                <div class="book-stats">
+                    <span class="book-stat">
+                        <i class="fas fa-star"></i>
+                        4.8/5
+                    </span>
+                    <span class="book-stat">
+                        <i class="fas fa-book-open"></i>
+                        800 pages
+                    </span>
+                </div>
+                <p class="book-description">The definitive guide to analyzing and defeating malicious software.</p>
+                <a href="#" class="cyber-button">
+                    Learn More
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Book 2 -->
+            <div class="book-card" data-aos="fade-up" data-aos-delay="100">
+                <img src="../assets/images/books/web-security.jpg" alt="Web Security" class="book-cover">
+                <h3 class="book-title">Advanced Web Penetration</h3>
+                <p class="book-author">Coming Soon</p>
+                <div class="book-stats">
+                    <span class="book-stat">
+                        <i class="fas fa-clock"></i>
+                        Pre-order
+                    </span>
+                </div>
+                <p class="book-description">Master advanced web penetration testing techniques and methodologies.</p>
+                <span class="coming-soon-badge">Coming Soon</span>
+                <a href="#" class="cyber-button">
+                    Notify Me
+                    <i class="fas fa-bell"></i>
+                </a>
+            </div>
+
+            <!-- Book 3 -->
+            <div class="book-card" data-aos="fade-up" data-aos-delay="200">
+                <img src="../assets/images/books/zero-trust.jpg" alt="Zero Trust Security" class="book-cover">
+                <h3 class="book-title">Zero Trust Architecture</h3>
+                <p class="book-author">Coming Soon</p>
+                <span class="coming-soon-badge">Coming Soon</span>
+                <p class="book-description">Implement and maintain zero trust security architecture in modern networks.</p>
+                <a href="#" class="cyber-button">
+                    Notify Me
+                    <i class="fas fa-bell"></i>
+                </a>
+            </div>
+
+            <!-- Book 4 -->
+            <div class="book-card" data-aos="fade-up" data-aos-delay="300">
+                <img src="../assets/images/books/cloud-security.jpg" alt="Cloud Security" class="book-cover">
+                <h3 class="book-title">Cloud Security Mastery</h3>
+                <p class="book-author">Coming Soon</p>
+                <span class="coming-soon-badge">Coming Soon</span>
+                <p class="book-description">Comprehensive guide to securing cloud infrastructure and applications.</p>
+                <a href="#" class="cyber-button">
+                    Notify Me
+                    <i class="fas fa-bell"></i>
+                </a>
+            </div>
+
+            <!-- Book 5 -->
+            <div class="book-card" data-aos="fade-up" data-aos-delay="400">
+                <img src="../assets/images/books/incident-response.jpg" alt="Incident Response" class="book-cover">
+                <h3 class="book-title">Incident Response Handbook</h3>
+                <p class="book-author">Coming Soon</p>
+                <span class="coming-soon-badge">Coming Soon</span>
+                <p class="book-description">Expert strategies for handling cybersecurity incidents and breaches.</p>
+                <a href="#" class="cyber-button">
+                    Notify Me
+                    <i class="fas fa-bell"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add this section after the Featured Books section -->
+    <section class="premium-section">
+        <div class="premium-overlay"></div>
+        <h2 class="section-title">Premium Collection</h2>
+        <div class="premium-grid">
+            <!-- Premium Book 1 -->
+            <div class="premium-card" data-aos="fade-up">
+                <span class="premium-badge">Premium</span>
+                <div class="premium-cover">
+                    <img src="../assets/images/books/advanced-pentesting.jpg" alt="Advanced Penetration Testing">
+                </div>
+                <div class="premium-content">
+                    <h3 class="premium-title">Advanced Penetration Testing</h3>
+                    <p class="premium-author">By Wil Allsopp</p>
+                    <div class="premium-meta">
+                        <span><i class="fas fa-star"></i> 4.9/5</span>
+                        <span><i class="fas fa-book"></i> 2023 Edition</span>
+                    </div>
+                    <a href="#" class="premium-button" onclick="handlePremiumPurchase(event, {
+                        id: 'book-1',
+                        title: 'Advanced Penetration Testing',
+                        price: 999,
+                        author: 'Wil Allsopp'
+                    })">
+                        Get Access <i class="fas fa-crown"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Premium Book 2 -->
+            <div class="premium-card" data-aos="fade-up" data-aos-delay="100">
+                <span class="premium-badge">Premium</span>
+                <div class="premium-cover">
+                    <img src="../assets/images/books/network-security.jpg" alt="Network Security Essentials">
+                </div>
+                <div class="premium-content">
+                    <h3 class="premium-title">Network Security Essentials</h3>
+                    <p class="premium-author">By William Stallings</p>
+                    <div class="premium-meta">
+                        <span><i class="fas fa-star"></i> 4.8/5</span>
+                        <span><i class="fas fa-book"></i> Latest Edition</span>
+                    </div>
+                    <a href="#" class="premium-button">
+                        Get Access <i class="fas fa-crown"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Premium Book 3 -->
+            <div class="premium-card" data-aos="fade-up" data-aos-delay="200">
+                <span class="premium-badge">Premium</span>
+                <div class="premium-cover">
+                    <img src="../assets/images/books/ethical-hacking.jpg" alt="Ethical Hacking Masterclass">
+                </div>
+                <div class="premium-content">
+                    <h3 class="premium-title">Ethical Hacking Masterclass</h3>
+                    <p class="premium-author">By Peter Kim</p>
+                    <div class="premium-meta">
+                        <span><i class="fas fa-star"></i> 4.9/5</span>
+                        <span><i class="fas fa-book"></i> 2024 Edition</span>
+                    </div>
+                    <a href="#" class="premium-button">
+                        Get Access <i class="fas fa-crown"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Add 7 more premium books with similar structure -->
+            <!-- Premium Book 4 -->
+            <div class="premium-card" data-aos="fade-up" data-aos-delay="300">
+                <span class="premium-badge">Premium</span>
+                <div class="premium-cover">
+                    <img src="../assets/images/books/wireless-security.jpg" alt="Wireless Security Complete">
+                </div>
+                <div class="premium-content">
+                    <h3 class="premium-title">Wireless Security Complete</h3>
+                    <p class="premium-author">By Joshua Wright</p>
+                    <div class="premium-meta">
+                        <span><i class="fas fa-star"></i> 4.7/5</span>
+                        <span><i class="fas fa-book"></i> 2024 Edition</span>
+                    </div>
+                    <a href="#" class="premium-button">
+                        Get Access <i class="fas fa-crown"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Continue with books 5-10 with similar structure -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="cyber-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="/assets/images/logo.png" alt="GITHACKS">
+                <h3 class="gradient-text">GITHACKS</h3>
+                <p>Empowering cybersecurity education through practical learning</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/courses">All Courses</a></li>
+                    <li><a href="/books">Books</a></li>
+                    <li><a href="/tools">Tools</a></li>
+                    <li><a href="../certification/index.html">Certification</a></li>
+                    <li><a href="/security/index.html">Security</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> chandanabhay4456@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> +91 8090912278</li>
+                    <li><i class="fas fa-map-marker-alt"></i>Azamgarh, Uttar Pradesh, India</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 GITHACKS. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/legal/terms.html">Terms of Service</a>
+                <a href="/security/index.html">Security</a>
+                <a href="/cookies/index.html">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/matrix.js"></script>
+    <script src="js/books.js"></script>
+</body>
+</html>

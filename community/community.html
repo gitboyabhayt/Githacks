@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join the GITHACKS community - Connect with fellow ethical hackers, participate in CTF events, and learn cybersecurity">
+    <meta name="keywords" content="cybersecurity community, ethical hacking, CTF events, bug bounty, hacker forum">
+    <title>Community - GITHACKS</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/glitch.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            color: #e0e0e0;
+            font-family: 'Orbitron', monospace;
+            margin: 0;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        #matrixBg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .community-section {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-footer {
+            margin-top: auto;
+            position: relative;
+            z-index: 1;
+            background: rgba(0, 0, 0, 0.8);
+            border-top: 2px solid #00ff00;
+            padding: 2rem 0;
+        }
+
+        .cyber-glitch {
+            font-size: 3rem;
+            color: #00ff00;
+            text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
+            animation: glitch 1s infinite;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 0 0 5px #00ff00; }
+            20% { text-shadow: -2px -2px 5px #00ff00; }
+            40% { text-shadow: 2px 2px 5px #00ff00; }
+            60% { text-shadow: -2px 2px 5px #00ff00; }
+            80% { text-shadow: 2px -2px 5px #00ff00; }
+            100% { text-shadow: 0 0 5px #00ff00; }
+        }
+
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid rgba(0, 255, 0, 0.2);
+            padding-bottom: 1rem;
+        }
+
+        .card-header i {
+            font-size: 2rem;
+            color: #00ff00;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        .card-header h2 {
+            margin: 0;
+            font-size: 1.8rem;
+            color: #00ff00;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: rgba(0, 255, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .stats span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .community-card {
+            background: rgba(16, 16, 16, 0.8);
+            border: 1px solid rgba(0, 255, 0, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem;
+            transition: transform 0.3s;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .community-card:hover {
+            transform: scale(1.05) rotateX(5deg);
+        }
+
+        .cyber-button {
+            background: transparent;
+            border: 2px solid #00ff00;
+            color: #00ff00;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cyber-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 255, 0, 0.2);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+
+        .cyber-button:hover:before {
+            left: 0;
+        }
+
+        .cyber-button:hover {
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .cyber-button:active {
+            transform: translateY(1px);
+        }
+
+        .guidelines-section {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: rgba(16, 16, 16, 0.8);
+            border-radius: 10px;
+        }
+
+        .guidelines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .guideline-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 255, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .guideline-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 255, 0, 0.2);
+        }
+
+        .guideline-item i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes neonPulse {
+            0% { box-shadow: 0 0 5px #00ff00; }
+            50% { box-shadow: 0 0 20px #00ff00; }
+            100% { box-shadow: 0 0 5px #00ff00; }
+        }
+
+        @media (max-width: 768px) {
+            .community-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .guidelines-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .cyber-glitch {
+                font-size: 2.5rem;
+            }
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .footer-section h3 {
+            color: #00ff00;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 5px #00ff00;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin: 0.5rem 0;
+        }
+
+        .footer-section a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .footer-section a:hover {
+            color: #00ff00;
+            text-shadow: 0 0 5px #00ff00;
+            padding-left: 10px;
+        }
+
+        .footer-section a::before {
+            content: '>';
+            position: absolute;
+            left: -15px;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover::before {
+            opacity: 1;
+            left: 0;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            font-size: 1.5rem;
+            color: #00ff00;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+            text-shadow: 0 0 10px #00ff00;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0, 255, 0, 0.2);
+        }
+
+        .footer-bottom p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="matrixBg"></canvas>
+    <div class="content-wrapper">
+        <!-- Simplified Navigation - Only Website Name -->
+        <nav class="main-nav">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <span class="neon-text">GITHACKS</span>
+                </a>
+            </div>
+        </nav>
+
+        <section class="community-section">
+            <h1 class="cyber-glitch" data-text="Hacker Community">Hacker Community</h1>
+            
+            <div class="community-grid">
+                <!-- Discord Community -->
+                <div class="community-card">
+                    <div class="card-header">
+                        <i class="fab fa-discord"></i>
+                        <h2>Discord Server</h2>
+                    </div>
+                    <div class="card-content">
+                        <p>Join our active Discord community with over 10,000 members</p>
+                        <div class="stats">
+                            <span><i class="fas fa-users"></i> 10,234 Members</span>
+                            <span><i class="fas fa-comments"></i> 24/7 Active</span>
+                        </div>
+                        <a href="https://discord.gg/githacks-community" class="cyber-button" target="_blank" rel="noopener noreferrer">Join Discord</a>
+                    </div>
+                </div>
+
+                <!-- Forums -->
+                <div class="community-card">
+                    <div class="card-header">
+                        <i class="fas fa-comments"></i>
+                        <h2>Forums</h2>
+                    </div>
+                    <div class="card-content">
+                        <p>Discuss security topics, share knowledge, and get help</p>
+                        <div class="stats">
+                            <span><i class="fas fa-book"></i> 5,000+ Topics</span>
+                            <span><i class="fas fa-users"></i> 15K Members</span>
+                        </div>
+                        <a href="../forums/index.html" class="cyber-button">Visit Forums</a>
+                    </div>
+                </div>
+
+                <!-- CTF Teams -->
+                <div class="community-card">
+                    <div class="card-header">
+                        <i class="fas fa-flag"></i>
+                        <h2>CTF Teams</h2>
+                    </div>
+                    <div class="card-content">
+                        <p>Join or create Capture The Flag teams</p>
+                        <div class="stats">
+                            <span><i class="fas fa-users"></i> 50+ Teams</span>
+                            <span><i class="fas fa-trophy"></i> Weekly Events</span>
+                        </div>
+                        <a href="../ctf/teams.html" class="cyber-button">Join CTF</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Guidelines -->
+        <section class="guidelines-section">
+            <div class="container">
+                <h2>Community Guidelines</h2>
+                <div class="guidelines-grid">
+                    <div class="guideline-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Ethical Conduct</h3>
+                        <p>Always practice ethical hacking and respect others' privacy and systems.</p>
+                    </div>
+                    <div class="guideline-item">
+                        <i class="fas fa-hands-helping"></i>
+                        <h3>Help Others</h3>
+                        <p>Share knowledge and help fellow community members grow.</p>
+                    </div>
+                    <div class="guideline-item">
+                        <i class="fas fa-user-shield"></i>
+                        <h3>Stay Safe</h3>
+                        <p>Follow security best practices and protect your identity.</p>
+                    </div>
+                    <div class="guideline-item">
+                        <i class="fas fa-code"></i>
+                        <h3>Quality Content</h3>
+                        <p>Contribute meaningful content and maintain professional discussions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-section">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="../team/index.html">About Us</a></li>
+                            <li><a href="../contact/index.html">Contact</a></li>
+                            <li><a href="../faq/index.html">FAQ</a></li>
+                            <li><a href="../blog/index.html">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="../legal/terms.html">Terms of Service</a></li>
+                            <li><a href="../legal/privacy.html">Privacy Policy</a></li>
+                            <li><a href="../legal/security.html">Security</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Connect</h3>
+                        <div class="social-links">
+                            <a href="https://discord.gg/your-discord-invite" target="_blank" rel="noopener noreferrer"><i class="fab fa-discord"></i></a>
+                            <a href="https://twitter.com/your-twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                            <a href="https://github.com/your-github" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                            <a href="https://linkedin.com/company/your-company" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 GITHACKS. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/matrix.js"></script>
+    <script src="../js/animations.js"></script>
+    <script>
+        // Update matrix background to cover full scroll height
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = Math.max(
+                window.innerHeight,
+                document.documentElement.scrollHeight,
+                document.body.scrollHeight
+            );
+        }
+        
+        // Call resizeCanvas on load and scroll
+        window.addEventListener('load', resizeCanvas);
+        window.addEventListener('scroll', resizeCanvas);
+        window.addEventListener('resize', resizeCanvas);
+
+        // Card Hover Effects
+        document.querySelectorAll('.community-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const angleX = (y - centerY) / 20;
+                const angleY = (centerX - x) / 20;
+                
+                card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale(1.05)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

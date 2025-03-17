@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GITHACKS - Bug Bounty Program</title>
+    <meta name="description" content="Join the GITHACKS Bug Bounty Program. Help secure our platform and earn rewards for finding vulnerabilities.">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="preload" href="../css/community.css" as="style">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/community.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        .bounty-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Hero Section */
+        .bounty-hero {
+            background: linear-gradient(45deg, var(--bg-primary), var(--bg-secondary));
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .bounty-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .bounty-hero p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Scope Cards */
+        .scope-section {
+            margin-bottom: 3rem;
+        }
+
+        .scope-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .scope-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .scope-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .scope-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .scope-header i {
+            font-size: 1.5rem;
+            color: var(--accent-primary);
+        }
+
+        .scope-title {
+            font-size: 1.25rem;
+            color: var(--text-primary);
+        }
+
+        .scope-list {
+            list-style: none;
+            padding: 0;
+            color: var(--text-secondary);
+        }
+
+        .scope-list li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .scope-list li i {
+            color: var(--accent-primary);
+            margin-top: 0.25rem;
+        }
+
+        /* Reward Table */
+        .reward-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 3rem;
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .reward-table th,
+        .reward-table td {
+            padding: 1rem;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+
+        .reward-table th {
+            background: rgba(var(--accent-primary-rgb), 0.1);
+            color: var(--text-primary);
+        }
+
+        .reward-table td {
+            color: var(--text-secondary);
+        }
+
+        .severity {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .severity-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .critical { background: #EF4444; }
+        .high { background: #F59E0B; }
+        .medium { background: #3B82F6; }
+        .low { background: #10B981; }
+
+        /* Hall of Fame */
+        .hall-of-fame {
+            margin-bottom: 3rem;
+        }
+
+        .researcher-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .researcher-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .researcher-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .researcher-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            overflow: hidden;
+        }
+
+        .researcher-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .researcher-name {
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .researcher-stats {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        /* Submission Guidelines */
+        .guidelines {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .guidelines h2 {
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .guidelines-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .guidelines-list li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .guidelines-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 8px;
+            height: 8px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+        }
+
+        @media (max-width: 768px) {
+            .bounty-container {
+                padding: 1rem;
+            }
+
+            .bounty-hero {
+                padding: 2rem 1rem;
+            }
+
+            .bounty-hero h1 {
+                font-size: 2rem;
+            }
+
+            .reward-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-brand">
+            <a href="../index.html" aria-label="GITHACKS Home">
+                <span class="neon-text">GITHACKS</span>
+            </a>
+        </div>
+        <div class="nav-links" role="menubar">
+            <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+            <a href="../courses.html" class="nav-link" role="menuitem">Courses</a>
+            <a href="../dashboard/index.html" class="nav-link" role="menuitem">Dashboard</a>
+            <a href="../books/index.html" class="nav-link" role="menuitem">Books</a>
+            <a href="../tools/index.html" class="nav-link" role="menuitem">Tools</a>
+            <a href="../team.html" class="nav-link" role="menuitem">Our Team</a>
+            <a href="index.html" class="nav-link active" role="menuitem" aria-current="page">Community</a>
+        </div>
+        <div class="auth-links">
+            <a href="../auth/login.html" class="btn btn-secondary" role="button">Login</a>
+            <a href="../auth/signup.html" class="btn btn-primary" role="button">Sign Up</a>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content" class="bounty-container">
+        <!-- Hero Section -->
+        <section class="bounty-hero">
+            <h1>Bug Bounty Program</h1>
+            <p>Help us make GITHACKS more secure. Find vulnerabilities, report them responsibly, and earn rewards for your contributions.</p>
+            <div class="cta-buttons">
+                <a href="#submit" class="btn btn-primary">Submit a Bug</a>
+                <a href="#scope" class="btn btn-secondary">View Scope</a>
+            </div>
+        </section>
+
+        <!-- Scope Section -->
+        <section id="scope" class="scope-section">
+            <h2>Program Scope</h2>
+            <div class="scope-grid">
+                <div class="scope-card">
+                    <div class="scope-header">
+                        <i class="fas fa-check-circle"></i>
+                        <h3 class="scope-title">In Scope</h3>
+                    </div>
+                    <ul class="scope-list">
+                        <li><i class="fas fa-check"></i> Main platform (*.githacks.com)</li>
+                        <li><i class="fas fa-check"></i> Mobile applications</li>
+                        <li><i class="fas fa-check"></i> API endpoints</li>
+                        <li><i class="fas fa-check"></i> Authentication systems</li>
+                    </ul>
+                </div>
+                <div class="scope-card">
+                    <div class="scope-header">
+                        <i class="fas fa-times-circle"></i>
+                        <h3 class="scope-title">Out of Scope</h3>
+                    </div>
+                    <ul class="scope-list">
+                        <li><i class="fas fa-times"></i> Third-party services</li>
+                        <li><i class="fas fa-times"></i> Social engineering</li>
+                        <li><i class="fas fa-times"></i> DDoS attacks</li>
+                        <li><i class="fas fa-times"></i> Physical security</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reward Table -->
+        <section class="rewards-section">
+            <h2>Reward Structure</h2>
+            <table class="reward-table">
+                <thead>
+                    <tr>
+                        <th>Severity</th>
+                        <th>Description</th>
+                        <th>Reward Range</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="severity">
+                                <span class="severity-indicator critical"></span>
+                                Critical
+                            </div>
+                        </td>
+                        <td>Remote code execution, database breach</td>
+                        <td>$5,000 - $10,000</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="severity">
+                                <span class="severity-indicator high"></span>
+                                High
+                            </div>
+                        </td>
+                        <td>Authentication bypass, stored XSS</td>
+                        <td>$2,000 - $5,000</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="severity">
+                                <span class="severity-indicator medium"></span>
+                                Medium
+                            </div>
+                        </td>
+                        <td>CSRF, reflected XSS</td>
+                        <td>$500 - $2,000</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="severity">
+                                <span class="severity-indicator low"></span>
+                                Low
+                            </div>
+                        </td>
+                        <td>Information disclosure, minor vulnerabilities</td>
+                        <td>$100 - $500</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Hall of Fame -->
+        <section class="hall-of-fame">
+            <h2>Hall of Fame</h2>
+            <div class="researcher-grid">
+                <!-- Top Researcher 1 -->
+                <div class="researcher-card">
+                    <div class="researcher-avatar">
+                        <img src="../assets/avatars/researcher1.jpg" alt="Security Researcher">
+                    </div>
+                    <h3 class="researcher-name">Alice Security</h3>
+                    <div class="researcher-stats">
+                        <div class="stat">
+                            <i class="fas fa-bug"></i>
+                            <span>42 bugs</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-trophy"></i>
+                            <span>$25,000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Researcher 2 -->
+                <div class="researcher-card">
+                    <div class="researcher-avatar">
+                        <img src="../assets/avatars/researcher2.jpg" alt="Security Researcher">
+                    </div>
+                    <h3 class="researcher-name">Bob Hacker</h3>
+                    <div class="researcher-stats">
+                        <div class="stat">
+                            <i class="fas fa-bug"></i>
+                            <span>35 bugs</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-trophy"></i>
+                            <span>$20,000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Researcher 3 -->
+                <div class="researcher-card">
+                    <div class="researcher-avatar">
+                        <img src="../assets/avatars/researcher3.jpg" alt="Security Researcher">
+                    </div>
+                    <h3 class="researcher-name">Charlie Secure</h3>
+                    <div class="researcher-stats">
+                        <div class="stat">
+                            <i class="fas fa-bug"></i>
+                            <span>28 bugs</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-trophy"></i>
+                            <span>$15,000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Submission Guidelines -->
+        <section id="submit" class="guidelines">
+            <h2>Submission Guidelines</h2>
+            <ul class="guidelines-list">
+                <li>Include a clear description of the vulnerability and its potential impact.</li>
+                <li>Provide detailed steps to reproduce the vulnerability.</li>
+                <li>Include proof-of-concept code if applicable (no malicious code).</li>
+                <li>Submit only one vulnerability per report.</li>
+                <li>Allow up to 48 hours for initial response.</li>
+                <li>Do not disclose the vulnerability publicly before it is fixed.</li>
+                <li>Follow responsible disclosure practices.</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

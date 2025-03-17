@@ -1,0 +1,3 @@
+Sample documentation file.
+
+This is a placeholder for documentation content.

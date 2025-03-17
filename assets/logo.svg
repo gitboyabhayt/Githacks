@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background Shield -->
+    <path d="M256 32L448 96V240C448 352 368 448 256 480C144 448 64 352 64 240V96L256 32Z" fill="url(#shield-gradient)" class="logo-shield"/>
+    
+    <!-- Circuit Lines -->
+    <g class="circuit-lines" stroke="url(#line-gradient)" stroke-width="8">
+        <path d="M160 240H224M288 240H352" stroke-linecap="round"/>
+        <path d="M256 144V336" stroke-linecap="round"/>
+        <path d="M192 176L320 304" stroke-linecap="round"/>
+        <path d="M320 176L192 304" stroke-linecap="round"/>
+    </g>
+    
+    <!-- Lock Body -->
+    <path d="M256 208C282.51 208 304 186.51 304 160C304 133.49 282.51 112 256 112C229.49 112 208 133.49 208 160C208 186.51 229.49 208 256 208Z" fill="url(#lock-gradient)" class="logo-lock"/>
+    <path d="M256 208V336" stroke="url(#lock-gradient)" stroke-width="16" stroke-linecap="round" class="logo-lock"/>
+    
+    <!-- Gradients -->
+    <defs>
+        <linearGradient id="shield-gradient" x1="64" y1="32" x2="448" y2="480" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#4F46E5"/>
+            <stop offset="100%" stop-color="#2563EB"/>
+        </linearGradient>
+        <linearGradient id="line-gradient" x1="160" y1="144" x2="352" y2="336" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#60A5FA"/>
+            <stop offset="100%" stop-color="#3B82F6"/>
+        </linearGradient>
+        <linearGradient id="lock-gradient" x1="208" y1="112" x2="304" y2="336" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#F0F9FF"/>
+            <stop offset="100%" stop-color="#BFDBFE"/>
+        </linearGradient>
+    </defs>
+    
+    <style>
+        @media (prefers-color-scheme: dark) {
+            .logo-shield { fill: url(#shield-gradient-dark); }
+            .circuit-lines { stroke: url(#line-gradient-dark); }
+            .logo-lock { fill: url(#lock-gradient-dark); }
+        }
+        
+        #shield-gradient-dark stop:first-child { stop-color: #6366F1; }
+        #shield-gradient-dark stop:last-child { stop-color: #3B82F6; }
+        
+        #line-gradient-dark stop:first-child { stop-color: #93C5FD; }
+        #line-gradient-dark stop:last-child { stop-color: #60A5FA; }
+        
+        #lock-gradient-dark stop:first-child { stop-color: #F0F9FF; }
+        #lock-gradient-dark stop:last-child { stop-color: #DBEAFE; }
+    </style>
+</svg>

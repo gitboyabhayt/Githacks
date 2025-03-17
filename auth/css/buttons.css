@@ -1,0 +1,151 @@
+/* Cyberpunk Button Base */
+.cyber-button {
+    --button-height: 50px;
+    --button-border: 2px;
+    --button-glow: 0 0 15px var(--primary);
+    --button-shadow: 0 2px 8px rgba(0, 255, 136, 0.4);
+    --glitch-offset: 2px;
+    
+    position: relative;
+    width: 100%;
+    height: var(--button-height);
+    background: transparent;
+    border: var(--button-border) solid var(--primary);
+    color: var(--primary);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.1em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin: 1.5rem 0;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    clip-path: polygon(
+        var(--glitch-offset) 0, 
+        calc(100% - var(--glitch-offset)) 0, 
+        100% var(--glitch-offset),
+        100% calc(100% - var(--glitch-offset)),
+        calc(100% - var(--glitch-offset)) 100%,
+        var(--glitch-offset) 100%,
+        0 calc(100% - var(--glitch-offset)),
+        0 var(--glitch-offset)
+    );
+}
+
+/* Button Layers */
+.cyber-button::before,
+.cyber-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+/* Glitch Layer */
+.cyber-button::before {
+    background: var(--primary);
+    opacity: 0;
+    z-index: -1;
+    clip-path: polygon(
+        calc(var(--glitch-offset) * 2) 0, 
+        calc(100% - var(--glitch-offset) * 2) 0, 
+        100% calc(var(--glitch-offset) * 2),
+        100% calc(100% - var(--glitch-offset) * 2),
+        calc(100% - var(--glitch-offset) * 2) 100%,
+        calc(var(--glitch-offset) * 2) 100%,
+        0 calc(100% - var(--glitch-offset) * 2),
+        0 calc(var(--glitch-offset) * 2)
+    );
+}
+
+/* Scan Line */
+.cyber-button::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(0, 255, 136, 0.4),
+        transparent 67%
+    );
+    transform: translate(-100%, -25%);
+}
+
+/* Hover Effects */
+.cyber-button:hover {
+    color: var(--darker);
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--button-glow);
+}
+
+.cyber-button:hover::before {
+    opacity: 1;
+}
+
+.cyber-button:hover::after {
+    animation: buttonScan 1.5s linear infinite;
+}
+
+/* Active State */
+.cyber-button:active {
+    transform: scale(0.98);
+}
+
+/* Loading State */
+.cyber-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    animation: none;
+}
+
+.cyber-button:disabled::after {
+    animation: none;
+}
+
+/* Button Variants */
+.cyber-button.login {
+    --primary: #00ff88;
+    --button-shadow: 0 2px 8px rgba(0, 255, 136, 0.4);
+}
+
+.cyber-button.signup {
+    --primary: #00ccff;
+    --button-shadow: 0 2px 8px rgba(0, 204, 255, 0.4);
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-top-color: var(--darker);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .cyber-button {
+        --button-height: 45px;
+        font-size: 1em;
+        letter-spacing: 1px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cyber-button {
+        --button-height: 40px;
+        padding: 0 20px;
+    }
+} 

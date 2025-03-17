@@ -1,0 +1,175 @@
+/* Profile Dropdown Styles */
+.profile-dropdown {
+    position: relative;
+    margin-right: 1rem;
+}
+
+.profile-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--cyber-bg-dark);
+    border: 1px solid var(--cyber-accent);
+    border-radius: 4px;
+    color: var(--cyber-text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.profile-btn:hover {
+    background: var(--cyber-accent-dark);
+    box-shadow: 0 0 10px var(--cyber-glow);
+}
+
+.profile-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--cyber-accent);
+}
+
+.profile-name {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.9rem;
+}
+
+.profile-menu {
+    position: absolute;
+    top: 120%;
+    right: 0;
+    width: 280px;
+    background: var(--cyber-bg-dark);
+    border: 1px solid var(--cyber-accent);
+    border-radius: 4px;
+    padding: 1rem;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.1);
+}
+
+.profile-menu.active {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--cyber-accent);
+}
+
+.profile-menu-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid var(--cyber-accent);
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-fullname {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    margin: 0;
+    color: var(--cyber-text);
+}
+
+.profile-email {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.8rem;
+    margin: 0.25rem 0 0;
+    color: var(--cyber-text-secondary);
+}
+
+.profile-menu-items {
+    padding-top: 1rem;
+}
+
+.profile-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    color: var(--cyber-text);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.profile-menu-item:hover {
+    background: var(--cyber-accent-dark);
+    color: var(--cyber-accent);
+}
+
+.profile-menu-item i {
+    width: 16px;
+    text-align: center;
+}
+
+.profile-menu-divider {
+    height: 1px;
+    background: var(--cyber-accent);
+    margin: 0.5rem 0;
+    opacity: 0.5;
+}
+
+.text-danger {
+    color: #ff4444;
+}
+
+.text-danger:hover {
+    background: rgba(255, 68, 68, 0.1);
+    color: #ff6666;
+}
+
+/* Animations */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .profile-name {
+        display: none;
+    }
+
+    .profile-btn {
+        padding: 0.5rem;
+    }
+
+    .profile-menu {
+        width: 250px;
+        right: -1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-menu {
+        width: 220px;
+    }
+
+    .profile-menu-avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .profile-fullname {
+        font-size: 0.9rem;
+    }
+
+    .profile-email {
+        font-size: 0.75rem;
+    }
+}
